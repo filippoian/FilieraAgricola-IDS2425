@@ -41,7 +41,7 @@ public class Evento {
 
     @ManyToOne
     @JoinColumn(name = "organizzatore_id")
-    @ToString.Exclude          // <--- Già che ci siamo, proteggiamo anche qui dai loop
+    @ToString.Exclude
     @EqualsAndHashCode.Exclude
     private Utente organizzatore;
 

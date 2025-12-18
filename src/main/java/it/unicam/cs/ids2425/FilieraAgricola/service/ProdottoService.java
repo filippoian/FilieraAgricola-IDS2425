@@ -28,10 +28,10 @@ public class ProdottoService {
     private final ProdottoRepository prodottoRepository;
     private final UtenteRepository utenteRepository;
 
-    /**
-     * Il campo private final ContentSubmissionRepository submissionRepository;
-     * private final ContentSubmissionRepository submissionRepository;
-     */
+
+     // Il campo private final ContentSubmissionRepository submissionRepository;
+     private final ContentSubmissionRepository submissionRepository;
+
 
     @Transactional
     public ProdottoResponse creaProdotto(ProdottoRequest request) {
@@ -51,16 +51,16 @@ public class ProdottoService {
 
         Prodotto savedProdotto = prodottoRepository.save(prodotto);
 
-        /**
-         * Le righe dentro creaProdotto che istanziano new ContentSubmission(...).
-         *
-         * // Crea la sottomissione in stato BOZZA
-         * ContentSubmission submission = new ContentSubmission(savedProdotto.getId(), "PRODOTTO");
-         * ContentSubmission savedSubmission = submissionRepository.save(submission);
-         *
-         * savedProdotto.setSubmission(savedSubmission);
-         * prodottoRepository.save(savedProdotto);
-         */
+
+         // Le righe dentro creaProdotto che istanziano new ContentSubmission(...).
+
+         // Crea la sottomissione in stato BOZZA
+         ContentSubmission submission = new ContentSubmission(savedProdotto.getId(), "PRODOTTO");
+         ContentSubmission savedSubmission = submissionRepository.save(submission);
+
+         savedProdotto.setSubmission(savedSubmission);
+         prodottoRepository.save(savedProdotto);
+
 
         return new ProdottoResponse(savedProdotto);
     }
@@ -125,18 +125,17 @@ public class ProdottoService {
         prodotto.setCertificazioni(request.getCertificazioni());
         prodotto.setMetodiColtivazione(request.getMetodiColtivazione());
 
-        /**
-         * Le righe dentro aggiornaProdotto che reimpostano lo stato a BOZZA.
-         *
-         * // Se modificato, torna in BOZZA
-         * ContentSubmission submission = prodotto.getSubmission();
-         * if (submission != null && submission.getStatus() != StatoContenuto.BOZZA) {
-         * submission.setStatus(StatoContenuto.BOZZA);
-         * submission.setFeedbackCuratore("Modificato, richiede nuova approvazione.");
-         * submission.updateState();
-         * submissionRepository.save(submission);
-         * }
-         */
+
+        //Le righe dentro aggiornaProdotto che reimpostano lo stato a BOZZA.
+
+         // Se modificato, torna in BOZZA
+         ContentSubmission submission = prodotto.getSubmission();
+         if (submission != null && submission.getStatus() != StatoContenuto.BOZZA) {
+            submission.setStatus(StatoContenuto.BOZZA);
+            submission.setFeedbackCuratore("Modificato, richiede nuova approvazione.");
+            submission.updateState();
+            submissionRepository.save(submission);
+         }
 
         return new ProdottoResponse(prodottoRepository.save(prodotto));
     }
