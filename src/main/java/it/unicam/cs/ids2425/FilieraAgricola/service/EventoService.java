@@ -29,12 +29,11 @@ public class EventoService {
     private final EventoRepository eventoRepository;
     private final UtenteRepository utenteRepository;
 
-    /**
-     * Il campo ContentSubmissionRepository e CurationService.
-     * private final ContentSubmissionRepository submissionRepository;
-     * // Servizio Curation iniettato per gestire l'approvazione
-     * private final CurationService curationService;
-     */
+     // Il campo ContentSubmissionRepository e CurationService
+     private final ContentSubmissionRepository submissionRepository;
+     // Servizio Curation iniettato per gestire l'approvazione
+//     private final CurationService curationService;
+
 
     @Transactional
     public EventoResponse creaEvento(EventoRequest request) {
@@ -58,14 +57,13 @@ public class EventoService {
 
         Evento savedEvento = eventoRepository.save(evento);
 
-        /**
-         * Logiche di creazione submission
-         * ContentSubmission submission = new ContentSubmission(savedEvento.getId(), "EVENTO");
-         * ContentSubmission savedSubmission = submissionRepository.save(submission);
-         *
-         * savedEvento.setSubmission(savedSubmission);
-         * eventoRepository.save(savedEvento);
-         */
+
+         //Logiche di creazione submission
+         ContentSubmission submission = new ContentSubmission(savedEvento.getId(), "EVENTO");
+         ContentSubmission savedSubmission = submissionRepository.save(submission);
+
+         savedEvento.setSubmission(savedSubmission);
+         eventoRepository.save(savedEvento);
 
         return new EventoResponse(savedEvento);
     }
@@ -99,16 +97,14 @@ public class EventoService {
         evento.setLongitudine(request.getLongitudine());
         // ---------------------------
 
-        /**
-         * Logica di reset submission (dipende da submissionRepository rimosso)
-         * ContentSubmission submission = evento.getSubmission();
-         * if (submission != null && submission.getStatus() != StatoContenuto.BOZZA) {
-         * submission.setStatus(StatoContenuto.BOZZA);
-         * submission.setFeedbackCuratore("Modificato, richiede nuova approvazione.");
-         * submission.updateState();
-         * submissionRepository.save(submission);
-         * }
-         */
+        // Logica di reset submission
+        ContentSubmission submission = evento.getSubmission();
+        if (submission != null && submission.getStatus() != StatoContenuto.BOZZA) {
+            submission.setStatus(StatoContenuto.BOZZA);
+            submission.setFeedbackCuratore("Modificato, richiede nuova approvazione.");
+            submission.updateState();
+            submissionRepository.save(submission);
+        }
 
         return new EventoResponse(eventoRepository.save(evento));
     }
@@ -130,38 +126,36 @@ public class EventoService {
 
     @Transactional(readOnly = true)
     public List<EventoResponse> getEventiDaApprovare() {
-        /**
-         * // Trova le submission IN_REVISIONE di tipo EVENTO
-         * List<Long> idsEventi = submissionRepository.findByStatus(StatoContenuto.IN_REVISIONE)
-         * .stream()
-         * .filter(s -> s.getSubmittableEntityType().equals("EVENTO"))
-         * .map(ContentSubmission::getSubmittableEntityId)
-         * .collect(Collectors.toList());
-         *
-         * // Recupera gli eventi corrispondenti
-         * return eventoRepository.findAllById(idsEventi)
-         * .stream()
-         * .map(EventoResponse::new)
-         * .collect(Collectors.toList());
-         */
+
+         // Trova le submission IN_REVISIONE di tipo EVENTO
+         List<Long> idsEventi = submissionRepository.findByStatus(StatoContenuto.IN_REVISIONE)
+         .stream()
+         .filter(s -> s.getSubmittableEntityType().equals("EVENTO"))
+         .map(ContentSubmission::getSubmittableEntityId)
+         .collect(Collectors.toList());
+
+         // Recupera gli eventi corrispondenti
+         return eventoRepository.findAllById(idsEventi)
+         .stream()
+         .map(EventoResponse::new)
+         .collect(Collectors.toList());
+
         return new ArrayList<>();
     }
 
-    @Transactional
-    public void approvaEvento(Long id) {
-        /**
-         * // Trova l'evento
-         * Evento evento = eventoRepository.findById(id)
-         * .orElseThrow(() -> new RuntimeException("Evento non trovato"));
-         *
-         * // Trova la submission collegata e approva tramite CurationService
-         * ContentSubmission submission = evento.getSubmission();
-         * if (submission == null) {
-         * throw new RuntimeException("Evento non sottomesso per l'approvazione");
-         * }
-         * curationService.approvaContenuto(submission.getId());
-         */
-    }
+//    @Transactional
+//    public void approvaEvento(Long id) {
+//        // Trova l'evento
+//        Evento evento = eventoRepository.findById(id)
+//                .orElseThrow(() -> new RuntimeException("Evento non trovato"));
+//
+//        // Trova la submission collegata e approva tramite CurationService
+//        ContentSubmission submission = evento.getSubmission();
+//        if (submission == null) {
+//            throw new RuntimeException("Evento non sottomesso per l'approvazione");
+//        }
+//        curationService.approvaContenuto(submission.getId());
+//    }
 
     private void checkOwnershipOrAdmin(Long ownerId, String azione) {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();

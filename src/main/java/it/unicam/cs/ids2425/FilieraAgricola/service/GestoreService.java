@@ -54,8 +54,7 @@ public class GestoreService {
      */
     @Transactional
     public void accreditaRuoloBase(Long userId, ERole ruoloNome) {
-        // Verifica che il ruolo non sia uno di quelli che richiedono procedure
-        // specifiche
+        // Verifica che il ruolo non sia uno di quelli che richiedono procedure specifiche
         if (ruoloNome == ERole.ROLE_PRODUTTORE ||
                 ruoloNome == ERole.ROLE_TRASFORMATORE ||
                 ruoloNome == ERole.ROLE_DISTRIBUTORE) {
@@ -234,7 +233,7 @@ public class GestoreService {
      * @param utente    L'utente proprietario del punto.
      * @return L'oggetto {@link FilieraPoint} salvato nel database e approvato.
      */
-   /* private FilieraPoint creaEApprovaFilieraPoint(String nome, String desc, String indirizzo,
+    private FilieraPoint creaEApprovaFilieraPoint(String nome, String desc, String indirizzo,
                                                   java.math.BigDecimal lat, java.math.BigDecimal lon,
                                                   TipoFilieraPoint tipo, Utente utente) {
 
@@ -257,7 +256,5 @@ public class GestoreService {
 
         savedPoint.setSubmission(savedSubmission);
         return filieraPointRepository.save(savedPoint);
-    }*/
-
-
+    }
 }
