@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <title>Mappa Filiera Agricola</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" />
+  <style>
+    body { margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+    #container { display: flex; height: 100vh; }
+    #sidebar {
+      width: 300px;
+      background: #f8f9fa;
+      padding: 20px;
+      box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+      z-index: 1000;
+      overflow-y: auto;
+    }
+    #map { flex-grow: 1; }
+
+    h2 { margin-top: 0; color: #2c3e50; font-size: 1.2rem; }
+    .filter-group { margin-bottom: 20px; }
+    label { display: block; margin-bottom: 5px; font-weight: bold; font-size: 0.9rem; }
+    select, button { width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 4px; }
+
+    .legend-item { display: flex; align-items: center; margin-bottom: 5px; font-size: 0.9rem; }
+    .dot { width: 12px; height: 12px; border-radius: 50%; margin-right: 10px; display: inline-block; }
+
+    /* Colori Marker */
+    .bg-green { background-color: #2aad27; } /* Aziende */
+    .bg-blue { background-color: #2a81cb; }  /* Eventi */
+
+    .leaflet-popup-content b { color: #333; font-size: 1.1em; }
+    .leaflet-popup-content p { margin: 5px 0; color: #555; }
+  </style>
+</head>
+<body>
+
+<div id="container">
+  <div id="sidebar">
+    <h2>Filtri Mappa</h2>
+
+    <div class="filter-group">
+      <label for="tipoAzienda">Tipo Azienda:</label>
+      <select id="tipoAzienda">
+        <option value="">Tutte</option>
+        <option value="AZIENDA_AGRICOLA">Azienda Agricola</option>
+        <option value="LABORATORIO_TRASFORMAZIONE">Trasformatore</option>
+        <option value="PUNTO_VENDITA">Punto Vendita</option>
+        <option value="MERCATO">Mercato</option>
+      </select>
+    </div>
+
+    <div class="filter-group">
+      <label for="organizzatoreEvento">Eventi di (Organizzatore):</label>
+      <select id="organizzatoreEvento" disabled>
+        <option value="">Tutti gli organizzatori</option>
+      </select>
+    </div>
+
+    <div class="filter-group">
+      <label>Legenda:</label>
+      <div class="legend-item">
+        <span class="dot bg-green"></span> Aziende / Punti Filiera
+      </div>
+      <div class="legend-item">
+        <span class="dot bg-blue"></span> Eventi
+      </div>
+    </div>
+
+    <div class="filter-group">
+      <small>Clicca su un punto per i dettagli.</small>
+    </div>
+  </div>
+
+  <div id="map"></div>
+</div>
+
+<script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script>
+<script>
+  // 1. Inizializzazione Mappa
+  const map = L.map('map').setView([43.14, 13.07], 9); // Centro approssimativo Marche
+
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: 19,
+    attribution: '© OpenStreetMap'
+  }).addTo(map);
+
+  // Layer Groups
+  const aziendeLayer = L.layerGroup().addTo(map);
+  const eventiLayer = L.layerGroup().addTo(map);
+
+  // Icone
+  const iconAzienda = new L.Icon({
+    iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png',
+    shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
+    iconSize: [25, 41],
+    iconAnchor: [12, 41],
+    popupAnchor: [1, -34],
+    shadowSize: [41, 41]
+  });
+
+  const iconEvento = new L.Icon({
+    iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-blue.png',
+    shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
+    iconSize: [25, 41],
+    iconAnchor: [12, 41],
+    popupAnchor: [1, -34],
+    shadowSize: [41, 41]
+  });
+
+  // Dati in memoria
+  let allAziendeGeoJSON = null;
+  let allEventi = [];
+
+  // --- CARICAMENTO AZIENDE (GeoJSON) ---
+  async function loadAziende() {
+    try {
+      // Usa l'endpoint corretto per i FilieraPoints
+      const response = await fetch('/api/mappa/punti');
+      if (!response.ok) throw new Error("Errore fetch aziende");
+
+      allAziendeGeoJSON = await response.json();
+      renderAziende();
+    } catch (err) {
+      console.error(err);
+    }
+  }
+
+  function renderAziende() {
+    aziendeLayer.clearLayers();
+    const filtroTipo = document.getElementById('tipoAzienda').value;
+
+    if (!allAziendeGeoJSON) return;
+
+    L.geoJSON(allAziendeGeoJSON, {
+      filter: (feature) => {
+        if (!filtroTipo) return true;
+        return feature.properties.tipo === filtroTipo;
+      },
+      pointToLayer: (feature, latlng) => {
+        return L.marker(latlng, { icon: iconAzienda });
+      },
+      onEachFeature: (feature, layer) => {
+        const p = feature.properties;
+        layer.bindPopup(`
+                    <b>${p.nome}</b><br>
+                    <i>${p.tipo.replace('_', ' ')}</i><br>
+                    ${p.indirizzo ? p.indirizzo : ''}<br>
+                    <hr>
+                    ${p.descrizione}
+                `);
+      }
+    }).addTo(aziendeLayer);
+  }
+
+  // --- CARICAMENTO EVENTI ---
+  async function loadEventi() {
+    try {
+      const response = await fetch('/api/eventi/approvati');
+      if (!response.ok) throw new Error("Errore fetch eventi");
+
+      allEventi = await response.json();
+
+      // Popola il filtro organizzatori
+      populateOrganizzatoriFilter();
+
+      renderEventi();
+    } catch (err) {
+      console.error(err);
+    }
+  }
+
+  function populateOrganizzatoriFilter() {
+    const select = document.getElementById('organizzatoreEvento');
+    const organizzatori = new Set();
+
+    allEventi.forEach(e => {
+      if (e.nomeOrganizzatore) {
+        organizzatori.add(e.nomeOrganizzatore);
+      }
+    });
+
+    // Pulisci e ripopola
+    select.innerHTML = '<option value="">Tutti gli organizzatori</option>';
+    organizzatori.forEach(org => {
+      const option = document.createElement('option');
+      option.value = org;
+      option.textContent = org;
+      select.appendChild(option);
+    });
+    select.disabled = false;
+  }
+
+  function renderEventi() {
+    eventiLayer.clearLayers();
+    const filtroOrg = document.getElementById('organizzatoreEvento').value;
+
+    allEventi.forEach(e => {
+      // Controlla se ha le coordinate (fondamentale!)
+      if (e.latitudine && e.longitudine) {
+
+        // Logica Filtro
+        if (filtroOrg && e.nomeOrganizzatore !== filtroOrg) {
+          return; // Salta se non corrisponde
+        }
+
+        const marker = L.marker([e.latitudine, e.longitudine], { icon: iconEvento });
+        marker.bindPopup(`
+                    <b>Evento: ${e.nome}</b><br>
+                    Data: ${e.data}<br>
+                    Luogo: ${e.luogo}<br>
+                    Organizzato da: <b>${e.nomeOrganizzatore}</b><br>
+                    <hr>
+                    ${e.descrizione}
+                `);
+        eventiLayer.addLayer(marker);
+      }
+    });
+  }
+
+  // --- EVENT LISTENERS ---
+  document.getElementById('tipoAzienda').addEventListener('change', renderAziende);
+  document.getElementById('organizzatoreEvento').addEventListener('change', renderEventi);
+
+  // Avvio
+  loadAziende();
+  loadEventi();
+
+</script>
+
+</body>
+</html>
