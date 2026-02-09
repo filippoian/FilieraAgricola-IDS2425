@@ -42,6 +42,7 @@ public class OrdineService {
     private final UtenteRepository utenteRepository;
     private final MarketplaceItemRepository marketplaceItemRepository;
     private final PacchettoRepository pacchettoRepository;
+    private final CarrelloRepository carrelloRepository;
     private final PricingStrategyFactory pricingStrategyFactory;
 
     /**
@@ -124,6 +125,13 @@ public class OrdineService {
 
         nuovoOrdine.setTotale(totaleOrdine);
         Ordine ordineSalvato = ordineRepository.save(nuovoOrdine);
+
+        // Svuota il carrello dell'utente dopo il checkout
+        carrelloRepository.findByUtenteId(utenteId).ifPresent(carrello -> {
+            carrello.getArticoli().clear();
+            carrelloRepository.save(carrello);
+        });
+
         return new OrdineResponse(ordineSalvato);
     }
 
