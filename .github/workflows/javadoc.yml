@@ -40,8 +40,8 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          # Javadoc is generated in target/site/apidocs by default
-          path: 'target/site/apidocs'
+          # Javadoc is generated in target/reports/apidocs by default in newer Maven versions
+          path: 'target/reports/apidocs'
 
       - name: Deploy to GitHub Pages
         id: deployment
