@@ -1,6 +1,6 @@
 package it.unicam.cs.ids2425.FilieraAgricola.controller;
 
-import it.unicam.cs.ids2425.FilieraAgricola.dto.request.CarrelloCheckoutDTO; // Import
+import it.unicam.cs.ids2425.FilieraAgricola.dto.request.CarrelloCheckoutDTO;
 
 import it.unicam.cs.ids2425.FilieraAgricola.dto.response.OrdineResponse;
 import it.unicam.cs.ids2425.FilieraAgricola.service.OrdineService;
@@ -31,7 +31,6 @@ public class OrdineController {
 
     private final OrdineService ordineService;
 
-    // --- ENDPOINT AGGIORNATO (come da specifica) ---
     /**
      * Endpoint per il processo di Checkout.
      * <p>

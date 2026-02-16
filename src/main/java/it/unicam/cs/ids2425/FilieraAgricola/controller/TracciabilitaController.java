@@ -1,8 +1,8 @@
 package it.unicam.cs.ids2425.FilieraAgricola.controller;
 
 import it.unicam.cs.ids2425.FilieraAgricola.dto.request.LottoCreateDTO;
-import it.unicam.cs.ids2425.FilieraAgricola.dto.request.StepCreateDTO; // Import
-import it.unicam.cs.ids2425.FilieraAgricola.dto.response.StepResponseDTO; // Import
+import it.unicam.cs.ids2425.FilieraAgricola.dto.request.StepCreateDTO;
+import it.unicam.cs.ids2425.FilieraAgricola.dto.response.StepResponseDTO;
 import it.unicam.cs.ids2425.FilieraAgricola.dto.response.TraceabilityGraphDTO;
 import it.unicam.cs.ids2425.FilieraAgricola.model.ProductBatch;
 import it.unicam.cs.ids2425.FilieraAgricola.service.TracciabilitaService;
@@ -11,7 +11,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List; // Import
+import java.util.List;
 
 @RestController
 @RequestMapping("/api/tracciabilita")
@@ -38,7 +38,6 @@ public class TracciabilitaController {
         return ResponseEntity.ok(tracciabilitaService.getStoriaLotto(id));
     }
 
-
     /**
      * API per aggiungere una fase (step) a un lotto.
      */
@@ -51,7 +50,8 @@ public class TracciabilitaController {
     }
 
     /**
-     * API pubblica per visualizzare solo le fasi di un lotto (il "diario di bordo").
+     * API pubblica per visualizzare solo le fasi di un lotto (il "diario di
+     * bordo").
      */
     @GetMapping("/lotti/{id}/fasi")
     @PreAuthorize("permitAll()")

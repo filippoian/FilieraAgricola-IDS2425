@@ -4,7 +4,7 @@ import it.unicam.cs.ids2425.FilieraAgricola.model.ProductBatch;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import java.time.LocalDate;
-import java.util.Comparator; // Import
+import java.util.Comparator;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -38,14 +38,14 @@ public class TraceabilityGraphDTO {
     public static TraceabilityGraphDTO buildRecursive(ProductBatch batch) {
         TraceabilityGraphDTO node = new TraceabilityGraphDTO(batch);
 
-        // 1. Popola le FASI (Steps) di questo lotto
+        // Popola le fasi di questo lotto
         Set<StepResponseDTO> steps = batch.getSteps().stream()
                 .map(StepResponseDTO::new)
                 .sorted(Comparator.comparing(StepResponseDTO::getDataStep)) // Ordina per data
                 .collect(Collectors.toSet());
         node.setSteps(steps);
 
-        // 2. Popola ricorsivamente i lotti di INPUT (Grafo)
+        // Popola ricorsivamente i lotti di input
         Set<TraceabilityGraphDTO> inputs = batch.getLottiInput().stream()
                 .map(link -> buildRecursive(link.getInputBatch()))
                 .collect(Collectors.toSet());

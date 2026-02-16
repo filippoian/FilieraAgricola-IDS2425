@@ -45,10 +45,10 @@ public class MappaService {
      * Converte un FilieraPoint in una GeoJSONFeature.
      */
     private GeoJSONFeature convertiAPuntoGeoJSON(FilieraPoint punto) {
-        // 1. Crea la Geometria
+        // Crea la Geometria
         GeoJSONGeometry geometry = new GeoJSONGeometry(punto.getLongitudine(), punto.getLatitudine());
 
-        // 2. Crea le Proprietà (i metadati)
+        // Crea le Proprietà (metadati)
         Map<String, Object> properties = new HashMap<>();
         properties.put("id", punto.getId());
         properties.put("nome", punto.getNomePunto());
@@ -56,7 +56,7 @@ public class MappaService {
         properties.put("descrizione", punto.getDescrizione());
         properties.put("indirizzo", punto.getIndirizzo());
 
-        // 3. Ritorna la Feature
+        // Ritorna la Feature
         return new GeoJSONFeature(geometry, properties);
     }
 }
