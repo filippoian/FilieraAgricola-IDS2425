@@ -1,4 +1,4 @@
-# 🚜 Filiera Agricola Tracciabile
+# 🚜 Filiera Agricola
 
 Benvenuto nella **Piattaforma di Filiera Agricola**! 🌱
 Questo progetto è un sistema backend basato su **Spring Boot** per la gestione, tracciabilità e vendita di prodotti agroalimentari, garantendo trasparenza dal produttore al consumatore.
@@ -77,4 +77,4 @@ mvn test
 Sentiti libero di aprire **Issues** o **Pull Requests** per migliorare il progetto!
 
 ---
-*Progetto realizzato per il corso IDS 2024/2025 - Unicam* 🎓
+*Progetto realizzato per il corso IDS 2025/2026 - Unicam* 🎓
