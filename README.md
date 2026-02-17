@@ -36,6 +36,17 @@ La documentazione tecnica Javadoc è disponibile online qui:
 
 ## 🚀 Come Avviare il Progetto
 
+### ☁️ Opzione Zero-Install (Consigliata)
+Non hai Java o MySQL installati? Nessun problema! Usa **GitHub Codespaces**: un ambiente cloud completo e gratuito già configurato.
+
+[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/filippoian/FilieraAgricola-IDS2425)
+
+1.  Clicca il badge qui sopra.
+2.  Attendi il caricamento (ci vorrà qualche minuto la prima volta).
+3.  Il sistema avvierà automaticamente il database e compilerà il progetto.
+4.  Troverai l'applicazione pronta su una porta dedicata (es. 8080).
+
+### 💻 Opzione Locale (Classica)
 ### Prerequisiti
 *   JDK 21 installato.
 *   Maven installato (o usa il wrapper `mvnw` incluso).

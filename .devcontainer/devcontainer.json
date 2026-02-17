@@ -1,0 +1,27 @@
+{
+	"name": "Java 21 & MySQL",
+	"image": "mcr.microsoft.com/devcontainers/java:1-21-bookworm",
+	"features": {
+		"ghcr.io/devcontainers/features/mysql:1": {
+			"version": "8.0",
+			"databaseName": "filieraagricola",
+			"rootPassword": "root"
+		}
+	},
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"vscjava.vscode-java-pack",
+				"vmware.vscode-spring-boot",
+				"vscjava.vscode-spring-boot-dashboard",
+				"cweijan.vscode-mysql-manager2"
+			]
+		}
+	},
+	"forwardPorts": [8080],
+	"postCreateCommand": "mvn clean install -DskipTests",
+	"remoteUser": "vscode",
+	"containerEnv": {
+		"DB_PASSWORD": "root"
+	}
+}
