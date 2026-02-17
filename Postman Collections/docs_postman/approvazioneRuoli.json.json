@@ -1,0 +1,1312 @@
+{
+	"info": {
+		"_postman_id": "d3845426-07a1-4a20-820c-d46f984124ec",
+		"name": "Filiera Agricola - Flusso Approvazione Ruoli (COMPLETO)",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "[FASE 1] Registrazione Utenti (con Ruolo)",
+			"item": [
+				{
+					"name": "1.1 Registra GESTORE (User 1)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"if (pm.response.code === 200) {",
+									"    pm.environment.set(\"user_id_gestore\", pm.response.json().id);",
+									"    console.log(\"ID Gestore (non approvato) salvato: \", pm.response.json().id);",
+									"}"
+								],
+								"type": "text/javascript",
+								"id": "8f62177e-dc28-4147-843f-6116200d67c5"
+							}
+						}
+					],
+					"id": "d3556dbc-8a9c-4ab8-9338-33c3cb02dc87",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nome\": \"Gestore\",\n    \"cognome\": \"Admin\",\n    \"telefono\": \"111111111\",\n    \"email\": \"gestore@test.com\",\n    \"password\": \"Password123!\",\n    \"ruolo\": \"ROLE_GESTORE\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseUrl}}/api/auth/register",
+						"description": "Si registra come GESTORE. L'utente viene creato con `enabled=false`."
+					},
+					"response": []
+				},
+				{
+					"name": "1.2 Registra PRODUTTORE (User 2)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"if (pm.response.code === 200) {",
+									"    pm.environment.set(\"user_id_produttore\", pm.response.json().id);",
+									"    console.log(\"ID Produttore (non approvato) salvato: \", pm.response.json().id);",
+									"}"
+								],
+								"type": "text/javascript",
+								"id": "aa7f1e49-2496-40ac-bb2b-183c4e346bd5"
+							}
+						}
+					],
+					"id": "5a433e26-b7cc-495a-9ce7-4fa75a84bc89",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nome\": \"Paolo\",\n    \"cognome\": \"Verdi\",\n    \"telefono\": \"222222222\",\n    \"email\": \"produttore@test.com\",\n    \"password\": \"Password123!\",\n    \"ruolo\": \"ROLE_PRODUTTORE\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseUrl}}/api/auth/register",
+						"description": "Si registra come PRODUTTORE. L'utente viene creato con `enabled=false`."
+					},
+					"response": []
+				},
+				{
+					"name": "1.3 Registra DISTRIBUTORE (User 3)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"if (pm.response.code === 200) {",
+									"    pm.environment.set(\"user_id_distributore\", pm.response.json().id);",
+									"    console.log(\"ID Distributore (non approvato) salvato: \", pm.response.json().id);",
+									"}"
+								],
+								"type": "text/javascript",
+								"id": "3b3a7408-d442-4d1a-b81c-a02a14fb36b8"
+							}
+						}
+					],
+					"id": "46c060eb-0195-4f12-924f-87ee42a49592",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nome\": \"Daria\",\n    \"cognome\": \"Rossi\",\n    \"telefono\": \"333333333\",\n    \"email\": \"distributore@test.com\",\n    \"password\": \"Password123!\",\n    \"ruolo\": \"ROLE_DISTRIBUTORE\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseUrl}}/api/auth/register",
+						"description": "Si registra come DISTRIBUTORE. L'utente viene creato con `enabled=false`."
+					},
+					"response": []
+				},
+				{
+					"name": "1.4 Registra CURATORE (User 4)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"if (pm.response.code === 200) {",
+									"    pm.environment.set(\"user_id_curatore\", pm.response.json().id);",
+									"    console.log(\"ID Curatore (non approvato) salvato: \", pm.response.json().id);",
+									"}"
+								],
+								"type": "text/javascript",
+								"id": "c398f5f2-0fb2-4de2-ba96-328ef6bbc595"
+							}
+						}
+					],
+					"id": "b14ebe25-213e-4f4e-8d81-4f4fd5007084",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nome\": \"Chiara\",\n    \"cognome\": \"Neri\",\n    \"telefono\": \"444444444\",\n    \"email\": \"curatore@test.com\",\n    \"password\": \"Password123!\",\n    \"ruolo\": \"ROLE_CURATORE\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseUrl}}/api/auth/register",
+						"description": "Si registra come CURATORE. L'utente viene creato con `enabled=false`."
+					},
+					"response": []
+				},
+				{
+					"name": "1.5 Registra ACQUIRENTE (User 5)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"if (pm.response.code === 200) {",
+									"    pm.environment.set(\"user_id_acquirente\", pm.response.json().id);",
+									"    console.log(\"ID Acquirente (approvato) salvato: \", pm.response.json().id);",
+									"}"
+								],
+								"type": "text/javascript",
+								"id": "38311cfe-1bcd-4dff-b896-cec7b196c35f"
+							}
+						}
+					],
+					"id": "ee00ea11-a3c4-43eb-b1c8-ca41febe1fc6",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nome\": \"Luca\",\n    \"cognome\": \"Bianchi\",\n    \"telefono\": \"555555555\",\n    \"email\": \"acquirente@test.com\",\n    \"password\": \"Password123!\",\n    \"ruolo\": \"ROLE_ACQUIRENTE\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseUrl}}/api/auth/register",
+						"description": "Si registra come ACQUIRENTE. L'utente viene creato con `enabled=true`."
+					},
+					"response": []
+				}
+			],
+			"id": "a14818aa-c778-4132-9833-46361eb799b7",
+			"description": "Registra tutti gli utenti che useremo per i test. Esegui queste richieste in ordine."
+		},
+		{
+			"name": "[FASE 2] Login e Approvazione",
+			"item": [
+				{
+					"name": "2.1 Login ACQUIRENTE (Funziona)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"if (pm.response.code === 200) {",
+									"    pm.environment.set(\"acquirente_token\", pm.response.json().token);",
+									"    console.log(\"Token ACQUIRENTE salvato.\");",
+									"}"
+								],
+								"type": "text/javascript",
+								"id": "08b711d4-806d-40f6-9d57-d9d28c957421"
+							}
+						}
+					],
+					"id": "2fe7742b-390e-4381-b33a-eca70c4c97af",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"acquirente@test.com\",\n    \"password\": \"Password123!\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseUrl}}/api/auth/login",
+						"description": "TEST: Questo login DEVE funzionare (200 OK) perché l'Acquirente è abilitato di default."
+					},
+					"response": []
+				},
+				{
+					"name": "2.2 Login GESTORE (Fallisce)",
+					"id": "49ed6307-fc15-48f3-9610-fee9387469c0",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"gestore@test.com\",\n    \"password\": \"Password123!\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseUrl}}/api/auth/login",
+						"description": "TEST: Questo login DEVE fallire con 403 e mostrare il messaggio 'Account in attesa di approvazione...'"
+					},
+					"response": []
+				},
+				{
+					"name": "2.3 Login PRODUTTORE (Fallisce)",
+					"id": "86f2f936-e241-4949-b118-108e8a692d3c",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"produttore@test.com\",\n    \"password\": \"Password123!\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseUrl}}/api/auth/login",
+						"description": "TEST: Questo login DEVE fallire con 403."
+					},
+					"response": []
+				},
+				{
+					"name": "2.4 Login GESTORE (Dopo 'Baro' DB)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"if (pm.response.code === 200) {",
+									"    pm.environment.set(\"gestore_token\", pm.response.json().token);",
+									"    console.log(\"Token GESTORE salvato.\");",
+									"}"
+								],
+								"type": "text/javascript",
+								"id": "8683bbd1-5b38-492b-a4a9-8a1289a916a5"
+							}
+						}
+					],
+					"id": "251c8168-bb7a-4c32-b48b-22d15b8e0455",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"gestore@test.com\",\n    \"password\": \"Password123!\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseUrl}}/api/auth/login",
+						"description": "Esegui questa DOPO aver eseguito il comando SQL: `UPDATE utenti SET enabled = true WHERE email = 'gestore@test.com';`"
+					},
+					"response": []
+				}
+			],
+			"id": "69c45f8d-5240-4f05-8c0d-6bc7f847f51a",
+			"description": "Qui 'bariamo' una sola volta per attivare il Gestore, poi testiamo i flussi di login."
+		},
+		{
+			"name": "[A] FLUSSO GESTORE (Accreditamento)",
+			"item": [
+				{
+					"name": "Accredita PRODUTTORE (User 2)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"id": "33b78ac8-09a3-40ee-90de-dcf6ca8c332b"
+							}
+						}
+					],
+					"id": "a67c3520-13ec-4253-85d0-2a5e8d2eb5d5",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{gestore_token}}"
+							}
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"ragioneSociale\": \"Azienda Agricola Verdi\",\n    \"partitaIva\": \"12345678901\",\n    \"descrizioneAzienda\": \"Produciamo ortaggi biologici dal 1980.\",\n    \"nomePunto\": \"Azienda Verdi - Punto Vendita\",\n    \"descrizionePunto\": \"Vendita diretta dei nostri prodotti.\",\n    \"indirizzoPunto\": \"Via dei Campi, 1, 63074 San Benedetto, AP\",\n    \"latitudine\": 42.95,\n    \"longitudine\": 13.88\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseUrl}}/api/gestore/utenti/{{user_id_produttore}}/accredita-produttore",
+						"description": "Il Gestore abilita l'utente 2 (produttore@test.com), imposta `enabled=true` e crea il suo profilo."
+					},
+					"response": []
+				},
+				{
+					"name": "Accredita DISTRIBUTORE (User 3)",
+					"id": "866d2c94-212f-498c-a6f4-223741905097",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{gestore_token}}"
+							}
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"ragioneSociale\": \"Logistica Frutta Srl\",\n    \"partitaIva\": \"09876543210\",\n    \"infoLogistica\": \"Consegnamo in 24h nel centro Italia.\",\n    \"nomePunto\": \"Magazzino Centrale Logistica Frutta\",\n    \"descrizionePunto\": \"Centro di smistamento.\",\n    \"indirizzoPunto\": \"Via della Logistica, 10, Ancona\",\n    \"latitudine\": 43.61,\n    \"longitudine\": 13.51\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseUrl}}/api/gestore/utenti/{{user_id_distributore}}/accredita-distributore",
+						"description": "Il Gestore abilita l'utente 3 (distributore@test.com)."
+					},
+					"response": []
+				},
+				{
+					"name": "Accredita CURATORE (User 4)",
+					"id": "f19eb615-3f64-4fb9-a92c-046bb00a5c51",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{gestore_token}}"
+							}
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"ruolo\": \"ROLE_CURATORE\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseUrl}}/api/gestore/utenti/{{user_id_curatore}}/accredita-ruolo",
+						"description": "Il Gestore abilita l'utente 4 (curatore@test.com) impostando `enabled=true`."
+					},
+					"response": []
+				}
+			],
+			"id": "9acc7a43-c876-4c74-b597-13f62a3aea34",
+			"description": "Azioni eseguite come GESTORE.\nRichiede il `gestore_token`."
+		},
+		{
+			"name": "[B] FLUSSO PRODUTTORE",
+			"item": [
+				{
+					"name": "Login PRODUTTORE (Approvato)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"if (pm.response.code === 200) {",
+									"    pm.environment.set(\"produttore_token\", pm.response.json().token);",
+									"    console.log(\"Token PRODUTTORE salvato.\");",
+									"}"
+								],
+								"type": "text/javascript",
+								"id": "9a9452a3-dba1-4ad4-bec2-e9cda103c093"
+							}
+						}
+					],
+					"id": "4a0390b5-14d8-4351-9b81-659871c01376",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"produttore@test.com\",\n    \"password\": \"Password123!\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseUrl}}/api/auth/login",
+						"description": "TEST: Ora che il Gestore lo ha approvato, il login del Produttore funziona."
+					},
+					"response": []
+				},
+				{
+					"name": "Crea Prodotto",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"if (pm.response.code === 200) {",
+									"    pm.environment.set(\"prodotto_id\", pm.response.json().id);",
+									"    console.log(\"ID Prodotto salvato: \", pm.response.json().id);",
+									"}"
+								],
+								"type": "text/javascript",
+								"id": "c457654b-604d-4df0-bfc9-00f8d984aad9"
+							}
+						}
+					],
+					"id": "7fdd29dc-36a6-4ebc-8663-da11b7df032b",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{produttore_token}}"
+							}
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nome\": \"Pomodoro San Marzano BIO\",\n    \"descrizione\": \"Pomodoro lungo, ideale per salse.\",\n    \"categoria\": \"Ortaggi\",\n    \"certificazioni\": \"Biologico EU\",\n    \"metodiColtivazione\": \"Agricoltura biologica, raccolta a mano.\",\n    \"utenteId\": {{user_id_produttore}} \n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseUrl}}/api/prodotti",
+						"description": "Il Prodotto nasce in stato BOZZA."
+					},
+					"response": []
+				},
+				{
+					"name": "Sottometti Prodotto (al Curatore)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"if (pm.response.code === 200) {",
+									"    pm.environment.set(\"submission_id_prodotto\", pm.response.json().id);",
+									"    console.log(\"ID Sottomissione Prodotto salvato: \", pm.response.json().id);",
+									"}"
+								],
+								"type": "text/javascript",
+								"id": "cea15ac0-fdb6-4b5a-b188-06601d2e0ff6"
+							}
+						}
+					],
+					"id": "c96d72bc-9611-486e-b122-9c696778baf0",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{produttore_token}}"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"url": "{{baseUrl}}/api/prodotti/{{prodotto_id}}/sottometti",
+						"description": "Il proprietario sottomette il prodotto (in BOZZA) al Curatore. Lo stato passa a IN_REVISIONE."
+					},
+					"response": []
+				},
+				{
+					"name": "Crea Lotto (Sorgente)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"if (pm.response.code === 200) {",
+									"    pm.environment.set(\"lotto_id\", pm.response.json().id);",
+									"    console.log(\"ID Lotto salvato: \", pm.response.json().id);",
+									"}"
+								],
+								"type": "text/javascript",
+								"id": "2c691f89-0de2-4692-8811-921143eb4d93"
+							}
+						}
+					],
+					"id": "c81e659a-fd31-4797-a0aa-45635d7f4a90",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{produttore_token}}"
+							}
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"productId\": {{prodotto_id}},\n    \"quantitaIniziale\": 100.5,\n    \"codiceLottoUnivoco\": \"PSM-2025-11-13-A\",\n    \"dataProduzione\": \"2025-11-13\",\n    \"inputBatchIds\": [] \n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseUrl}}/api/tracciabilita/lotti"
+					},
+					"response": []
+				},
+				{
+					"name": "Aggiungi Fase (al Lotto)",
+					"id": "6727b9a6-d3b9-46b0-980c-a8524ea7e7ab",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{produttore_token}}"
+							}
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"azione\": \"RACCOLTA\",\n    \"descrizione\": \"Raccolta a mano, campo 3.\",\n    \"filieraPointId\": 1, \n    \"dataStep\": \"2025-11-13T10:00:00\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseUrl}}/api/tracciabilita/lotti/{{lotto_id}}/fasi",
+						"description": "Aggiunge una fase (un evento) al \"diario di bordo\" di un lotto. \nNOTA: filieraPointId=1 è l'ID del FilieraPoint creato dal Gestore per il Produttore."
+					},
+					"response": []
+				},
+				{
+					"name": "Metti Prodotto in Vendita (Fallisce)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"id": "92e80c72-7ee3-4143-885e-38c8391732e7"
+							}
+						}
+					],
+					"id": "16c57c50-f15d-4c55-a29f-7c24c98f04af",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{produttore_token}}"
+							}
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"prodottoId\": {{prodotto_id}}, \n    \"prezzoUnitario\": 3.50,\n    \"unitaDiMisura\": \"KG\",\n    \"stockDisponibile\": 50\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseUrl}}/api/marketplace/items",
+						"description": "TEST: Questa richiesta DEVE fallire (errore 500 o 400) perché il Prodotto è IN_REVISIONE, non APPROVATO."
+					},
+					"response": []
+				}
+			],
+			"id": "e2f30456-2041-4097-b581-61d501d29331",
+			"description": "Azioni eseguite come PRODUTTORE.  \nRichiede il `produttore_token`."
+		},
+		{
+			"name": "[C] FLUSSO CURATORE",
+			"item": [
+				{
+					"name": "Login CURATORE (Approvato)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"if (pm.response.code === 200) {",
+									"    pm.environment.set(\"curatore_token\", pm.response.json().token);",
+									"    console.log(\"Token CURATORE salvato.\");",
+									"}"
+								],
+								"type": "text/javascript",
+								"id": "e6241c84-1645-463e-b1a8-78461d61dc82"
+							}
+						}
+					],
+					"id": "d5f2c934-e322-40c4-a420-6faf91f82a2f",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"curatore@test.com\",\n    \"password\": \"Password123!\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseUrl}}/api/auth/login",
+						"description": "TEST: Ora che il Gestore lo ha approvato, il login del Curatore funziona."
+					},
+					"response": []
+				},
+				{
+					"name": "Vedi Contenuti in Revisione",
+					"id": "b43fd5db-901a-4b0a-8f94-bcdb7c45437a",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{curatore_token}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "{{baseUrl}}/api/curatore/revisione",
+						"description": "Il Curatore controlla i prodotti in attesa. Dovresti vedere il Prodotto sottomesso dal Produttore."
+					},
+					"response": []
+				},
+				{
+					"name": "Approva Prodotto",
+					"id": "bb857380-8acf-4333-aae6-2f0aa8009ff7",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{curatore_token}}"
+							}
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"feedback\": \"Approvato. Ottimo prodotto.\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseUrl}}/api/curatore/approva/{{submission_id_prodotto}}",
+						"description": "Il Curatore approva la sottomissione del prodotto. Lo stato passa a APPROVATO."
+					},
+					"response": []
+				}
+			],
+			"id": "7b8bf5af-14d1-4043-b55d-34bee100fa85",
+			"description": "Azioni eseguite come CURATORE.\nRichiede il `curatore_token`."
+		},
+		{
+			"name": "[D] FLUSSO PRODUTTORE (Post-Approvazione)",
+			"item": [
+				{
+					"name": "Metti Prodotto in Vendita (Funziona)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"if (pm.response.code === 200) {",
+									"    pm.environment.set(\"item_id\", pm.response.json().itemId);",
+									"    console.log(\"ID Item Marketplace salvato: \", pm.response.json().itemId);",
+									"}"
+								],
+								"type": "text/javascript",
+								"id": "2829a54e-5a91-4dcb-b8e9-db367dd1b247"
+							}
+						}
+					],
+					"id": "84f009b5-2987-485d-96b6-2906e81dc091",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{produttore_token}}"
+							}
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"prodottoId\": {{prodotto_id}}, \n    \"prezzoUnitario\": 3.50,\n    \"unitaDiMisura\": \"KG\",\n    \"stockDisponibile\": 50\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseUrl}}/api/marketplace/items",
+						"description": "TEST: Ora che il Curatore ha APPROVATO il Prodotto, questa richiesta funziona."
+					},
+					"response": []
+				}
+			],
+			"id": "ff4b6dc6-f80a-4521-9357-2001ffd1cebb",
+			"description": "Azioni eseguite come PRODUTTORE.\nRichiede il `produttore_token`."
+		},
+		{
+			"name": "[E] FLUSSO ACQUIRENTE",
+			"item": [
+				{
+					"name": "Vedi Catalogo (Ora Pieno)",
+					"id": "596472c7-a31a-4526-8f1c-5079cfe443ee",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{acquirente_token}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "{{baseUrl}}/api/marketplace/catalogo",
+						"description": "TEST: Ora il catalogo contiene il prodotto approvato."
+					},
+					"response": []
+				},
+				{
+					"name": "Aggiungi Prodotto al Carrello",
+					"id": "2a9d5571-4ff7-4467-b4ee-ef7089b110a3",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{acquirente_token}}"
+							}
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"prodottoId\": {{prodotto_id}},\n    \"quantita\": 2\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseUrl}}/api/carrello/{{user_id_acquirente}}/aggiungi",
+						"description": "Aggiunge il Prodotto al carrello."
+					},
+					"response": []
+				},
+				{
+					"name": "Vedi Carrello",
+					"id": "701d9ced-3b30-4c42-ae86-5f7b01d2ac50",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{acquirente_token}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "{{baseUrl}}/api/carrello/{{user_id_acquirente}}"
+					},
+					"response": []
+				},
+				{
+					"name": "Checkout (Crea Ordine)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"if (pm.response.code === 200) {",
+									"    pm.environment.set(\"ordine_id\", pm.response.json().id);",
+									"    console.log(\"ID Ordine salvato: \", pm.response.json().id);",
+									"}"
+								],
+								"type": "text/javascript",
+								"id": "60d743e0-017b-4c78-aecd-25c72ee3d1d2"
+							}
+						}
+					],
+					"id": "da6246ae-9332-4d9f-9eed-a9e8681c7266",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{acquirente_token}}"
+							}
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"items\": [\n        {\n            \"id\": {{item_id}}, \n            \"quantita\": 2\n        }\n    ],\n    \"pacchetti\": []\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseUrl}}/api/ordini/checkout/{{user_id_acquirente}}",
+						"description": "Crea un ordine."
+					},
+					"response": []
+				},
+				{
+					"name": "Vedi i Miei Ordini",
+					"id": "ac7dc8a0-c05c-410c-9621-44a10c32edcc",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{acquirente_token}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "{{baseUrl}}/api/ordini/utente/{{user_id_acquirente}}"
+					},
+					"response": []
+				}
+			],
+			"id": "627de8f2-8a7d-4a46-8972-0493e7f49763",
+			"description": "Azioni eseguite come ACQUIRENTE.\nRichiede l'`acquirente_token`."
+		},
+		{
+			"name": "[F] FLUSSO DISTRIBUTORE",
+			"item": [
+				{
+					"name": "Login DISTRIBUTORE (Approvato)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"if (pm.response.code === 200) {",
+									"    pm.environment.set(\"distributore_token\", pm.response.json().token);",
+									"    console.log(\"Token DISTRIBUTORE salvato.\");",
+									"}"
+								],
+								"type": "text/javascript",
+								"id": "bf1aca00-48fd-414f-92ea-85a7f748a2ba"
+							}
+						}
+					],
+					"id": "265d5cf8-cf72-4d3b-b0dc-9f5a49676054",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"distributore@test.com\",\n    \"password\": \"Password123!\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseUrl}}/api/auth/login"
+					},
+					"response": []
+				},
+				{
+					"name": "Crea Pacchetto",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"if (pm.response.code === 200) {",
+									"    pm.environment.set(\"pacchetto_id\", pm.response.json().id);",
+									"    console.log(\"ID Pacchetto salvato: \", pm.response.json().id);",
+									"}"
+								],
+								"type": "text/javascript",
+								"id": "71bd217f-73b3-44ab-adab-1ea20f83a693"
+							}
+						}
+					],
+					"id": "5415aeb8-6a38-4d4d-92bc-f9f289e190c9",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{distributore_token}}"
+							}
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nome\": \"Cesto Degustazione Bio\",\n    \"descrizione\": \"Una selezione dei nostri migliori prodotti.\",\n    \"distributoreId\": {{user_id_distributore}}, \n    \"prezzoTotale\": 29.99,\n    \"marketplaceItemIds\": [{{item_id}}] \n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseUrl}}/api/pacchetti",
+						"description": "Crea un pacchetto combinando più MarketplaceItems (qui usiamo solo l'item creato dal produttore)."
+					},
+					"response": []
+				}
+			],
+			"id": "be20d87d-9a36-4ea3-8dd0-8fefea4c9f3e",
+			"description": "Azioni eseguite come DISTRIBUTORE.\nRichiede il `distributore_token`."
+		},
+		{
+			"name": "[G] ENDPOINT PUBBLICI",
+			"item": [
+				{
+					"name": "Vedi Mappa (GeoJSON)",
+					"id": "9dfcfd50-8b4b-4e32-92be-ce744b71971a",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": "{{baseUrl}}/api/mappa/punti",
+						"description": "Endpoint pubblico che restituisce tutti i FilieraPoint APPROVATI in formato GeoJSON per la mappa."
+					},
+					"response": []
+				},
+				{
+					"name": "Vedi Catalogo Marketplace",
+					"id": "8ab92b23-fd4d-41cc-91d1-6e932003d2c0",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": "{{baseUrl}}/api/marketplace/catalogo",
+						"description": "API pubblica. Ottiene tutti gli item e i pacchetti APPROVATI disponibili per la vendita."
+					},
+					"response": []
+				},
+				{
+					"name": "Vedi Eventi Approvati",
+					"id": "27ba4954-3b32-42e1-a427-3dee4b65c545",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": "{{baseUrl}}/api/eventi/approvati"
+					},
+					"response": []
+				},
+				{
+					"name": "Vedi Storia Lotto",
+					"id": "445ac9c4-9502-4326-aacb-ba236e0aa34a",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": "{{baseUrl}}/api/tracciabilita/lotti/{{lotto_id}}/storia"
+					},
+					"response": []
+				}
+			],
+			"id": "606d1774-ecf5-4393-a9be-86d645c016b5",
+			"description": "Queste richieste non richiedono autenticazione e funzionano sempre."
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://localhost:8080"
+		},
+		{
+			"key": "gestore_token",
+			"value": ""
+		},
+		{
+			"key": "produttore_token",
+			"value": ""
+		},
+		{
+			"key": "curatore_token",
+			"value": ""
+		},
+		{
+			"key": "acquirente_token",
+			"value": ""
+		},
+		{
+			"key": "user_id_gestore",
+			"value": ""
+		},
+		{
+			"key": "user_id_produttore",
+			"value": ""
+		},
+		{
+			"key": "user_id_acquirente",
+			"value": ""
+		},
+		{
+			"key": "prodotto_id",
+			"value": ""
+		},
+		{
+			"key": "submission_id_prodotto",
+			"value": ""
+		},
+		{
+			"key": "lotto_id",
+			"value": ""
+		},
+		{
+			"key": "item_id",
+			"value": ""
+		},
+		{
+			"key": "user_id_curatore",
+			"value": ""
+		},
+		{
+			"key": "user_id_distributore",
+			"value": ""
+		},
+		{
+			"key": "distributore_token",
+			"value": ""
+		},
+		{
+			"key": "pacchetto_id",
+			"value": ""
+		},
+		{
+			"key": "submission_id_pacchetto",
+			"value": ""
+		}
+	]
+}
