@@ -1943,6 +1943,141 @@
                     }
                 }
             ]
+        },
+        {
+            "name": "9. Flusso E-Commerce (Acquisto Prodotti)",
+            "description": "L'Acquirente si registra, aggiunge prodotti al carrello e completa l'ordine.",
+            "item": [
+                {
+                    "name": "9.1 Registra ACQUIRENTE (Shop)",
+                    "event": [
+                        {
+                            "listen": "test",
+                            "script": {
+                                "exec": [
+                                    "if(pm.response.code === 200) pm.environment.set('id_acquirente_shop', pm.response.json().id);"
+                                ],
+                                "type": "text/javascript"
+                            }
+                        }
+                    ],
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"nome\": \"Mario\", \"cognome\": \"Rossi\", \"email\": \"acquirente.shop@test.com\", \"password\": \"Password123!\", \"telefono\": \"3331112233\", \"ruolo\": \"ROLE_ACQUIRENTE\"}"
+                        },
+                        "url": "http://localhost:8080/api/auth/register"
+                    }
+                },
+                {
+                    "name": "9.2 Login ACQUIRENTE (Shop)",
+                    "event": [
+                        {
+                            "listen": "test",
+                            "script": {
+                                "exec": [
+                                    "if(pm.response.code === 200) pm.environment.set('token_acquirente_shop', pm.response.json().token);"
+                                ],
+                                "type": "text/javascript"
+                            }
+                        }
+                    ],
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"email\": \"acquirente.shop@test.com\", \"password\": \"Password123!\"}"
+                        },
+                        "url": "http://localhost:8080/api/auth/login"
+                    }
+                },
+                {
+                    "name": "9.3 Aggiungi Riso al Carrello",
+                    "request": {
+                        "method": "POST",
+                        "auth": {
+                            "type": "bearer",
+                            "bearer": {
+                                "token": "{{token_acquirente_shop}}"
+                            }
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"marketplaceItemId\": \"{{prodotto_id}}\", \"quantita\": 3}"
+                        },
+                        "url": "http://localhost:8080/api/carrello/{{id_acquirente_shop}}/aggiungi",
+                        "description": "Cerca nella variabile 'prodotto_id' salvata in precedenza (es. id_prod_milano)."
+                    }
+                },
+                {
+                    "name": "9.4 Visualizza Carrello",
+                    "request": {
+                        "method": "GET",
+                        "auth": {
+                            "type": "bearer",
+                            "bearer": {
+                                "token": "{{token_acquirente_shop}}"
+                            }
+                        },
+                        "url": "http://localhost:8080/api/carrello/{{id_acquirente_shop}}"
+                    }
+                },
+                {
+                    "name": "9.5 Checkout Utente (Crea Ordine)",
+                    "request": {
+                        "method": "POST",
+                        "auth": {
+                            "type": "bearer",
+                            "bearer": {
+                                "token": "{{token_acquirente_shop}}"
+                            }
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"metodoPagamento\": \"CARTA_CREDITO\", \"indirizzoSpedizione\": \"Via Roma 1, Milano\", \"items\": [{\"id\": \"{{prodotto_id}}\", \"quantita\": 3}], \"pacchetti\": []}"
+                        },
+                        "url": "http://localhost:8080/api/ordini/checkout/{{id_acquirente_shop}}"
+                    }
+                },
+                {
+                    "name": "9.6 I Miei Ordini",
+                    "request": {
+                        "method": "GET",
+                        "auth": {
+                            "type": "bearer",
+                            "bearer": {
+                                "token": "{{token_acquirente_shop}}"
+                            }
+                        },
+                        "url": "http://localhost:8080/api/ordini/utente/{{id_acquirente_shop}}"
+                    }
+                }
+            ]
         }
     ]
 }
