@@ -78,7 +78,8 @@
                     "response": []
                 }
             ],
-            "id": "d8b5a64f-4003-45de-80ea-628a807fa3b3"
+            "id": "d8b5a64f-4003-45de-80ea-628a807fa3b3",
+            "description": "Ottiene i token JWT per i ruoli di gestione (Gestore, Curatore) e login di servizio."
         },
         {
             "name": "1. Creazione Attori (Animatore, Trasformatore)",
@@ -208,7 +209,8 @@
                     "response": []
                 }
             ],
-            "id": "aa53c2e8-380e-49d6-930b-206bb3e22f9b"
+            "id": "aa53c2e8-380e-49d6-930b-206bb3e22f9b",
+            "description": "Registra nuovi utenti nel sistema. Nota: Gli utenti creati non sono ancora attivi (enabled=false) finch\u00e9 il Gestore non li accredita."
         },
         {
             "name": "2. Login Operativi",
@@ -247,7 +249,8 @@
                     },
                     "response": []
                 }
-            ]
+            ],
+            "description": "Effettua il login con i nuovi utenti appena creati per ottenere i loro token operativi."
         },
         {
             "name": "3. Nord Italia",
@@ -417,7 +420,8 @@
                     "response": []
                 }
             ],
-            "id": "f0808e8f-ed4b-4341-9cea-0a871f6f3f21"
+            "id": "f0808e8f-ed4b-4341-9cea-0a871f6f3f21",
+            "description": "Simula l'attivit\u00e0 in Nord Italia: registrazione produttori (Riso), trasformatori (Pasta) ed eventi (Torino)."
         },
         {
             "name": "4. Centro Italia",
@@ -525,7 +529,8 @@
                     "response": []
                 }
             ],
-            "id": "0da5605a-b940-411e-8f00-8454f86033b9"
+            "id": "0da5605a-b940-411e-8f00-8454f86033b9",
+            "description": "Simula l'attivit\u00e0 in Centro Italia: distributori (Roma), e eventi (Firenze/Vino)."
         },
         {
             "name": "5. Sud e Isole",
@@ -695,7 +700,8 @@
                     "response": []
                 }
             ],
-            "id": "404efd0f-2dee-47a5-8ea1-589090a4df4f"
+            "id": "404efd0f-2dee-47a5-8ea1-589090a4df4f",
+            "description": "Simula l'attivit\u00e0 in Sud Italia: produttori (Pomodori/Agrumi) ed eventi (Bari)."
         },
         {
             "name": "6. Eventi Extra (Sagre, Degustazioni)",
@@ -819,7 +825,8 @@
                     "response": []
                 }
             ],
-            "id": "d15db226-a6fe-4758-9f0c-52a38409a4ae"
+            "id": "d15db226-a6fe-4758-9f0c-52a38409a4ae",
+            "description": "Creazione di eventi aggiuntivi da parte dell'Animatore."
         },
         {
             "name": "7. Approvazione Finale (Tutto)",
@@ -975,6 +982,107 @@
                         "url": "http://localhost:8080/api/eventi/{{id_evento2}}/approva"
                     },
                     "response": []
+                }
+            ],
+            "description": "Il Curatore e il Gestore approvano tutti i contenuti (Eventi, Aziende) creati finora per renderli pubblici."
+        },
+        {
+            "name": "8. Flusso Utente (Prenotazione Eventi)",
+            "description": "Un Acquirente si registra, fa login e prenota un biglietto per un evento approvato.",
+            "item": [
+                {
+                    "name": "8.1 Registra ACQUIRENTE",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"nome\": \"Marco\", \"cognome\": \"Rossi\", \"email\": \"acquirente.eventi@test.com\", \"password\": \"Password123!\", \"telefono\": \"3339998877\", \"ruolo\": \"ROLE_ACQUIRENTE\"}"
+                        },
+                        "url": "http://localhost:8080/api/auth/register",
+                        "description": "L'Acquirente si registra ed \u00e8 subito abilitato."
+                    },
+                    "event": [
+                        {
+                            "listen": "test",
+                            "script": {
+                                "exec": [
+                                    "if(pm.response.code === 200) pm.environment.set('id_acquirente_eventi', pm.response.json().id);"
+                                ],
+                                "type": "text/javascript"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "8.2 Login ACQUIRENTE",
+                    "event": [
+                        {
+                            "listen": "test",
+                            "script": {
+                                "exec": [
+                                    "if(pm.response.code === 200) pm.environment.set('token_acquirente', pm.response.json().token);"
+                                ],
+                                "type": "text/javascript"
+                            }
+                        }
+                    ],
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"email\": \"acquirente.eventi@test.com\", \"password\": \"Password123!\"}"
+                        },
+                        "url": "http://localhost:8080/api/auth/login"
+                    }
+                },
+                {
+                    "name": "8.3 Prenota Evento (Torino)",
+                    "request": {
+                        "method": "POST",
+                        "auth": {
+                            "type": "bearer",
+                            "bearer": {
+                                "token": "{{token_acquirente}}"
+                            }
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"utenteId\": 5, \"eventoId\": \"{{id_evento_to}}\"}"
+                        },
+                        "url": "http://localhost:8080/api/prenotazioni",
+                        "description": "L'utente prenota un posto per l'evento di Torino creato in precedenza."
+                    }
+                },
+                {
+                    "name": "8.4 I Miei Biglietti",
+                    "request": {
+                        "method": "GET",
+                        "auth": {
+                            "type": "bearer",
+                            "bearer": {
+                                "token": "{{token_acquirente}}"
+                            }
+                        },
+                        "url": "http://localhost:8080/api/prenotazioni/utente/{{id_acquirente_eventi}}"
+                    }
                 }
             ]
         }
