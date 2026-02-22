@@ -1,13 +1,8 @@
 {
-	"name": "Java 21 & MySQL",
-	"image": "mcr.microsoft.com/devcontainers/java:1-21-bookworm",
-	"features": {
-		"ghcr.io/devcontainers/features/mysql:1": {
-			"version": "8.0",
-			"databaseName": "filieraagricola",
-			"rootPassword": "root"
-		}
-	},
+	"name": "Java & MySQL (Docker Compose)",
+	"dockerComposeFile": "docker-compose.yml",
+	"service": "app",
+	"workspaceFolder": "/workspace",
 	"customizations": {
 		"vscode": {
 			"extensions": [
@@ -18,8 +13,10 @@
 			]
 		}
 	},
-	"forwardPorts": [8080],
-	"postCreateCommand": "mvn clean install -DskipTests",
+	"forwardPorts": [
+		8080,
+		3306
+	],
 	"remoteUser": "vscode",
 	"containerEnv": {
 		"DB_PASSWORD": "root"

@@ -859,10 +859,132 @@
                         "description": "Il Curatore approva la sottomissione del prodotto. Lo stato passa a APPROVATO."
                     },
                     "response": []
+                },
+                {
+                    "name": "Metti Prodotto in Vendita (Ora Funziona)",
+                    "event": [
+                        {
+                            "listen": "test",
+                            "script": {
+                                "exec": [
+                                    "if(pm.response.code === 200) pm.environment.set(\"marketplace_item_id\", pm.response.json().itemId);"
+                                ],
+                                "type": "text/javascript"
+                            }
+                        }
+                    ],
+                    "request": {
+                        "auth": {
+                            "type": "bearer",
+                            "bearer": {
+                                "token": "{{produttore_token}}"
+                            }
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"prodottoId\": {{prodotto_id}}, \n    \"prezzoUnitario\": 3.50,\n    \"unitaDiMisura\": \"KG\",\n    \"stockDisponibile\": 50\n}"
+                        },
+                        "url": "{{baseUrl}}/api/marketplace/items",
+                        "description": "Ora che il prodotto è APPROVATO, il Produttore può metterlo in vendita nel Marketplace."
+                    },
+                    "response": []
                 }
             ],
             "id": "7b8bf5af-14d1-4043-b55d-34bee100fa85",
             "description": "Azioni eseguite come CURATORE.\nRichiede il `curatore_token`."
+        },
+        {
+            "name": "00.6 Flusso Distributore (Crea Pacchetto)",
+            "item": [
+                {
+                    "name": "Login DISTRIBUTORE (Approvato)",
+                    "event": [
+                        {
+                            "listen": "test",
+                            "script": {
+                                "exec": [
+                                    "if (pm.response.code === 200) {",
+                                    "    pm.environment.set(\"token_distributore\", pm.response.json().token);",
+                                    "}"
+                                ],
+                                "type": "text/javascript"
+                            }
+                        }
+                    ],
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"email\": \"mercato.roma@test.com\",\n    \"password\": \"Password123!\"\n}"
+                        },
+                        "url": "{{baseUrl}}/api/auth/login",
+                        "description": "Login del Distributore per creare il pacchetto promozionale."
+                    }
+                },
+                {
+                    "name": "Crea Pacchetto",
+                    "event": [
+                        {
+                            "listen": "test",
+                            "script": {
+                                "exec": [
+                                    "if(pm.response.code === 200) pm.environment.set(\"pacchetto_id\", pm.response.json().id);"
+                                ],
+                                "type": "text/javascript"
+                            }
+                        }
+                    ],
+                    "request": {
+                        "auth": {
+                            "type": "bearer",
+                            "bearer": {
+                                "token": "{{token_distributore}}"
+                            }
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"nome\": \"Cesto della Salute Bio\", \n    \"descrizione\": \"Un pacchetto contenente il meglio dei nostri prodotti appena raccolti.\",\n    \"distributoreId\": {{id_distr_roma}},\n    \"prezzoTotale\": 15.00,\n    \"marketplaceItemIds\": [{{marketplace_item_id}}]\n}"
+                        },
+                        "url": "{{baseUrl}}/api/pacchetti",
+                        "description": "Il Distributore crea un pacchetto contenente gli item del marketplace. Il pacchetto nasce IN_REVISIONE."
+                    }
+                },
+                {
+                    "name": "Approva Pacchetto (Da Curatore)",
+                    "request": {
+                        "auth": {
+                            "type": "bearer",
+                            "bearer": {
+                                "token": "{{curatore_token}}"
+                            }
+                        },
+                        "method": "POST",
+                        "url": "{{baseUrl}}/api/pacchetti/{{pacchetto_id}}/approva",
+                        "description": "Il Curatore approva il pacchetto, rendendolo pubblico ed acquistabile."
+                    }
+                }
+            ],
+            "description": "Azioni eseguite come DISTRIBUTORE per creare un Pacchetto e dal CURATORE per approvarlo."
         },
         {
             "name": "0. Login Amministrativi",
@@ -2005,7 +2127,7 @@
                     }
                 },
                 {
-                    "name": "9.3 Aggiungi Riso al Carrello",
+                    "name": "9.3 Aggiungi Pomodoro al Carrello",
                     "request": {
                         "method": "POST",
                         "auth": {
@@ -2022,10 +2144,34 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"marketplaceItemId\": \"{{prodotto_id}}\", \"quantita\": 3}"
+                            "raw": "{\"marketplaceItemId\": {{marketplace_item_id}}, \"quantita\": 3}"
                         },
                         "url": "http://localhost:8080/api/carrello/{{id_acquirente_shop}}/aggiungi",
-                        "description": "Cerca nella variabile 'prodotto_id' salvata in precedenza (es. id_prod_milano)."
+                        "description": "Cerca nella variabile 'marketplace_item_id' salvata in precedenza."
+                    }
+                },
+                {
+                    "name": "9.3.1 Aggiungi Pacchetto al Carrello",
+                    "request": {
+                        "method": "POST",
+                        "auth": {
+                            "type": "bearer",
+                            "bearer": {
+                                "token": "{{token_acquirente_shop}}"
+                            }
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"pacchettoId\": {{pacchetto_id}}, \"quantita\": 1}"
+                        },
+                        "url": "http://localhost:8080/api/carrello/{{id_acquirente_shop}}/aggiungi",
+                        "description": "Aggiunge un pacchetto promozionale al carrello (se creato nel flusso Gestore)."
                     }
                 },
                 {
@@ -2059,7 +2205,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"metodoPagamento\": \"CARTA_CREDITO\", \"indirizzoSpedizione\": \"Via Roma 1, Milano\", \"items\": [{\"id\": \"{{prodotto_id}}\", \"quantita\": 3}], \"pacchetti\": []}"
+                            "raw": "{\"metodoPagamento\": \"CARTA_CREDITO\", \"indirizzoSpedizione\": \"Via Roma 1, Milano\", \"items\": [{\"id\": {{marketplace_item_id}}, \"quantita\": 3}], \"pacchetti\": [{\"id\": {{pacchetto_id}}, \"quantita\": 1}]}"
                         },
                         "url": "http://localhost:8080/api/ordini/checkout/{{id_acquirente_shop}}"
                     }

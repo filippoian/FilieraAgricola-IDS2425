@@ -6,7 +6,9 @@ import lombok.Data;
 @Data
 @AllArgsConstructor
 public class ArticoloCarrelloResponse {
-    private Long prodottoId;
+    private Long marketplaceItemId;
+    private Long pacchettoId;
     private String nomeProdotto;
+    private double prezzoUnitario;
     private int quantita;
 }

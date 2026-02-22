@@ -93,6 +93,8 @@ public class PacchettoService {
         Pacchetto savedPacchetto = pacchettoRepository.save(pacchetto);
 
         ContentSubmission submission = new ContentSubmission(savedPacchetto.getId(), "PACCHETTO");
+        submission.setStatus(StatoContenuto.IN_REVISIONE);
+        submission.updateState();
         ContentSubmission savedSubmission = submissionRepository.save(submission);
 
         savedPacchetto.setSubmission(savedSubmission); // Campo 'submission' aggiunto al modello
@@ -180,8 +182,8 @@ public class PacchettoService {
         }
 
         ContentSubmission submission = pacchetto.getSubmission();
-        if (submission != null && submission.getStatus() != StatoContenuto.BOZZA) {
-            submission.setStatus(StatoContenuto.BOZZA);
+        if (submission != null && submission.getStatus() != StatoContenuto.IN_REVISIONE) {
+            submission.setStatus(StatoContenuto.IN_REVISIONE);
             submission.setFeedbackCuratore("Modificato, richiede nuova approvazione.");
             submission.updateState();
             submissionRepository.save(submission);

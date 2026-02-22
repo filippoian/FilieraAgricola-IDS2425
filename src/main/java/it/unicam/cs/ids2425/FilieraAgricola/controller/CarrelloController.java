@@ -49,7 +49,7 @@ public class CarrelloController {
     // carrello
     @PreAuthorize("@customSecurityService.hasUserId(authentication, #utenteId)")
     public ResponseEntity<CarrelloResponse> aggiungiProdotto(@PathVariable Long utenteId,
-                                                             @RequestBody AggiungiAlCarrelloRequest request) {
+            @RequestBody AggiungiAlCarrelloRequest request) {
         return ResponseEntity.ok(carrelloService.aggiungiProdotto(utenteId, request));
     }
 
@@ -61,12 +61,29 @@ public class CarrelloController {
      * @param prodottoId ID del prodotto da rimuovere.
      * @return Il carrello aggiornato.
      */
-    @DeleteMapping("/{utenteId}/rimuovi/{prodottoId}")
+    @DeleteMapping("/{utenteId}/rimuovi/{marketplaceItemId}")
     // Controllo di sicurezza: solo l'utente stesso può modificare il proprio
     // carrello
     @PreAuthorize("@customSecurityService.hasUserId(authentication, #utenteId)")
     public ResponseEntity<CarrelloResponse> rimuoviProdotto(@PathVariable Long utenteId,
-                                                            @PathVariable Long prodottoId) {
-        return ResponseEntity.ok(carrelloService.rimuoviProdotto(utenteId, prodottoId));
+            @PathVariable Long marketplaceItemId) {
+        return ResponseEntity.ok(carrelloService.rimuoviProdotto(utenteId, marketplaceItemId));
+    }
+
+    /**
+     * Rimuove un pacchetto specifico dal carrello dell'utente.
+     * Operazione consentita solo all'utente proprietario del carrello.
+     *
+     * @param utenteId    ID dell'utente.
+     * @param pacchettoId ID del pacchetto da rimuovere.
+     * @return Il carrello aggiornato.
+     */
+    @DeleteMapping("/{utenteId}/rimuoviPacchetto/{pacchettoId}")
+    // Controllo di sicurezza: solo l'utente stesso può modificare il proprio
+    // carrello
+    @PreAuthorize("@customSecurityService.hasUserId(authentication, #utenteId)")
+    public ResponseEntity<CarrelloResponse> rimuoviPacchetto(@PathVariable Long utenteId,
+            @PathVariable Long pacchettoId) {
+        return ResponseEntity.ok(carrelloService.rimuoviPacchetto(utenteId, pacchettoId));
     }
 }

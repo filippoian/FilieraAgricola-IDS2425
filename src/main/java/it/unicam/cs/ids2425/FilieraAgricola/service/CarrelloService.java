@@ -5,10 +5,11 @@ import it.unicam.cs.ids2425.FilieraAgricola.dto.response.ArticoloCarrelloRespons
 import it.unicam.cs.ids2425.FilieraAgricola.dto.response.CarrelloResponse;
 import it.unicam.cs.ids2425.FilieraAgricola.model.ArticoloCarrello;
 import it.unicam.cs.ids2425.FilieraAgricola.model.Carrello;
-import it.unicam.cs.ids2425.FilieraAgricola.model.Prodotto;
+import it.unicam.cs.ids2425.FilieraAgricola.model.MarketplaceItem;
 import it.unicam.cs.ids2425.FilieraAgricola.model.Utente;
 import it.unicam.cs.ids2425.FilieraAgricola.repository.CarrelloRepository;
-import it.unicam.cs.ids2425.FilieraAgricola.repository.ProdottoRepository;
+import it.unicam.cs.ids2425.FilieraAgricola.repository.MarketplaceItemRepository;
+import it.unicam.cs.ids2425.FilieraAgricola.repository.PacchettoRepository;
 import it.unicam.cs.ids2425.FilieraAgricola.repository.UtenteRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -27,7 +28,8 @@ import java.util.stream.Collectors;
 public class CarrelloService {
 
     private final CarrelloRepository carrelloRepository;
-    private final ProdottoRepository prodottoRepository;
+    private final MarketplaceItemRepository marketplaceItemRepository;
+    private final PacchettoRepository pacchettoRepository;
     private final UtenteRepository utenteRepository;
 
     /**
@@ -62,23 +64,40 @@ public class CarrelloService {
         // Recupera o crea il carrello per l'utente
         Carrello carrello = getOrCreateCarrello(utenteId);
 
-        // Verifica l'esistenza del prodotto
-        Prodotto prodotto = prodottoRepository.findById(request.getProdottoId())
-                .orElseThrow(() -> new RuntimeException("Prodotto non trovato con id: " + request.getProdottoId()));
+        if (request.getMarketplaceItemId() != null) {
+            MarketplaceItem marketplaceItem = marketplaceItemRepository.findById(request.getMarketplaceItemId())
+                    .orElseThrow(() -> new RuntimeException(
+                            "Articolo marketplace non trovato con id: " + request.getMarketplaceItemId()));
+            Optional<ArticoloCarrello> articoloEsistente = carrello.getArticoli().stream()
+                    .filter(art -> art.getMarketplaceItem() != null
+                            && art.getMarketplaceItem().getId().equals(marketplaceItem.getId()))
+                    .findFirst();
 
-        // Cerca se il prodotto è già nel carrello
-        Optional<ArticoloCarrello> articoloEsistente = carrello.getArticoli().stream()
-                .filter(art -> art.getProdotto().getId().equals(prodotto.getId()))
-                .findFirst();
+            if (articoloEsistente.isPresent()) {
+                ArticoloCarrello articolo = articoloEsistente.get();
+                articolo.setQuantita(articolo.getQuantita() + request.getQuantita());
+            } else {
+                ArticoloCarrello nuovoArticolo = new ArticoloCarrello(carrello, marketplaceItem, request.getQuantita());
+                carrello.getArticoli().add(nuovoArticolo);
+            }
+        } else if (request.getPacchettoId() != null) {
+            it.unicam.cs.ids2425.FilieraAgricola.model.Pacchetto pacchetto = pacchettoRepository
+                    .findById(request.getPacchettoId())
+                    .orElseThrow(
+                            () -> new RuntimeException("Pacchetto non trovato con id: " + request.getPacchettoId()));
+            Optional<ArticoloCarrello> articoloEsistente = carrello.getArticoli().stream()
+                    .filter(art -> art.getPacchetto() != null && art.getPacchetto().getId().equals(pacchetto.getId()))
+                    .findFirst();
 
-        if (articoloEsistente.isPresent()) {
-            // Se esiste, incrementa la quantità
-            ArticoloCarrello articolo = articoloEsistente.get();
-            articolo.setQuantita(articolo.getQuantita() + request.getQuantita());
+            if (articoloEsistente.isPresent()) {
+                ArticoloCarrello articolo = articoloEsistente.get();
+                articolo.setQuantita(articolo.getQuantita() + request.getQuantita());
+            } else {
+                ArticoloCarrello nuovoArticolo = new ArticoloCarrello(carrello, pacchetto, request.getQuantita());
+                carrello.getArticoli().add(nuovoArticolo);
+            }
         } else {
-            // Se non esiste, crea un nuovo articolo nel carrello
-            ArticoloCarrello nuovoArticolo = new ArticoloCarrello(carrello, prodotto, request.getQuantita());
-            carrello.getArticoli().add(nuovoArticolo);
+            throw new IllegalArgumentException("Devi specificare marketplaceItemId o pacchettoId");
         }
 
         // Salva le modifiche
@@ -94,11 +113,19 @@ public class CarrelloService {
      * @return DTO aggiornato dello stato del carrello.
      */
     @Transactional
-    public CarrelloResponse rimuoviProdotto(Long utenteId, Long prodottoId) {
+    public CarrelloResponse rimuoviProdotto(Long utenteId, Long marketplaceItemId) {
         Carrello carrello = getOrCreateCarrello(utenteId);
+        carrello.getArticoli().removeIf(articolo -> articolo.getMarketplaceItem() != null
+                && articolo.getMarketplaceItem().getId().equals(marketplaceItemId));
+        carrelloRepository.save(carrello);
+        return toResponse(carrello);
+    }
 
-        // Rimuove l'articolo corrispondente al prodotto specificato
-        carrello.getArticoli().removeIf(articolo -> articolo.getProdotto().getId().equals(prodottoId));
+    @Transactional
+    public CarrelloResponse rimuoviPacchetto(Long utenteId, Long pacchettoId) {
+        Carrello carrello = getOrCreateCarrello(utenteId);
+        carrello.getArticoli().removeIf(
+                articolo -> articolo.getPacchetto() != null && articolo.getPacchetto().getId().equals(pacchettoId));
 
         carrelloRepository.save(carrello);
         return toResponse(carrello);
@@ -124,10 +151,23 @@ public class CarrelloService {
      */
     private CarrelloResponse toResponse(Carrello carrello) {
         List<ArticoloCarrelloResponse> articoliResponse = carrello.getArticoli().stream()
-                .map(art -> new ArticoloCarrelloResponse(
-                        art.getProdotto().getId(),
-                        art.getProdotto().getNome(),
-                        art.getQuantita()))
+                .map(art -> {
+                    if (art.getMarketplaceItem() != null) {
+                        return new ArticoloCarrelloResponse(
+                                art.getMarketplaceItem().getId(),
+                                null,
+                                art.getMarketplaceItem().getProdotto().getNome(),
+                                art.getMarketplaceItem().getPrezzoUnitario(),
+                                art.getQuantita());
+                    } else {
+                        return new ArticoloCarrelloResponse(
+                                null,
+                                art.getPacchetto().getId(),
+                                art.getPacchetto().getNome(),
+                                art.getPacchetto().getPrezzo_totale().doubleValue(),
+                                art.getQuantita());
+                    }
+                })
                 .collect(Collectors.toList());
         return new CarrelloResponse(carrello.getId(), carrello.getUtente().getId(), articoliResponse);
     }
