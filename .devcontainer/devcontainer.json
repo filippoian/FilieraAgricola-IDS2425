@@ -3,6 +3,14 @@
 	"dockerComposeFile": "docker-compose.yml",
 	"service": "app",
 	"workspaceFolder": "/workspace",
+	"features": {
+		"ghcr.io/devcontainers/features/java:1": {
+			"version": "21",
+			"jdkType": "default",
+			"installMaven": "true",
+			"mavenVersion": "3.9.5"
+		}
+	},
 	"customizations": {
 		"vscode": {
 			"extensions": [
