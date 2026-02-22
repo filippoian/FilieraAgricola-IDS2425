@@ -7,8 +7,13 @@ Questo progetto è un sistema backend basato su **Spring Boot** per la gestione,
 
 ## 📚 Documentazione
 
-La documentazione tecnica Javadoc è disponibile online qui:
-👉 **[Javadoc & API Reference](https://filippoian.github.io/FilieraAgricola-IDS2425/)**
+La documentazione del progetto è divisa in due parti:
+
+1.  **Relazione di Ingegneria del Software**: Il documento principale con l'analisi dei requisiti, le scelte architetturali e i pattern utilizzati è disponibile nella cartella del progetto in formato PDF:  
+    👉 **[Visualizza Relazione Ingegneria del Software](docs/Relazione%20Ingegneria%20del%20Software.pdf)**
+
+2.  **Documentazione Tecnica (Javadoc)**: La documentazione generata per le API e le classi del backend è disponibile online qui:  
+    👉 **[Javadoc & API Reference](https://filippoian.github.io/FilieraAgricola-IDS2425/)**
 
 ---
 
@@ -54,14 +59,22 @@ L'applicazione richiede un database **MySQL** in esecuzione locale o remota.
 ## 🚀 Come Avviare il Progetto
 
 ### ☁️ Opzione Zero-Install (Consigliata)
-Non hai Java o MySQL installati? Nessun problema! Usa **GitHub Codespaces**: un ambiente cloud completo e gratuito già configurato.
+Non hai Java o MySQL installati? Nessun problema! Usa **GitHub Codespaces**: un ambiente cloud completo e gratuito, configurato nativamente con **Docker Compose** per darti Java 21 e MySQL 8 pronti all'uso in pochi istanti.
 
 [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/filippoian/FilieraAgricola-IDS2425)
 
-1.  Clicca il badge qui sopra.
-2.  Attendi il caricamento (ci vorrà qualche minuto la prima volta).
-3.  Il sistema avvierà automaticamente il database e compilerà il progetto.
-4.  Troverai l'applicazione pronta su una porta dedicata (es. 8080).
+1.  Clicca il badge qui sopra e seleziona **Create codespace on main** (se ne avevi uno vecchio, eliminalo e ricrealo).
+2.  Attendi l'apertura dell'editor nel browser. Il database MySQL si configurerà automaticamente in background.
+3.  Apri un **Terminale** (`Terminal -> New Terminal`) nell'editor di Codespaces.
+4.  Scarica le dipendenze e compila il progetto saltando i test (necessario al primo avvio):
+    ```bash
+    mvn clean install -DskipTests
+    ```
+5.  Avvia il server Spring Boot:
+    ```bash
+    mvn spring-boot:run
+    ```
+6.  In basso a destra comparirà un pop-up: clicca su **Open in Browser** per visualizzare l'app.
 
 ### 💻 Opzione Locale (Classica)
 ### Prerequisiti
@@ -97,9 +110,15 @@ Nella cartella `docs/postman/` del progetto è disponibile una collection comple
 
 ### Come configurare Postman:
 1.  **Importa la collection**: Apri Postman, clicca su "Import" (in alto a sinistra) e seleziona il file `docs/postman/PopolamentoDatiCompleto.json`.
-2.  **Configura la variabile baseUrl**: Crea un "Environment" in Postman (o usa le variabili globali) e aggiungi una variabile chiamata `baseUrl` con valore `http://localhost:8080`.
-3.  **Gestione dei Token JWT**: La collection include degli script (tab "Tests") che catturano automaticamente i token JWT ricevuti dopo un login e li salvano come variabili di ambiente (es. `gestore_token`, `produttore_token`, ecc.). Non avrai bisogno di copiarli manualmente per il continuo del flusso!
-4.  **Flusso Consigliato**: Esegui le richieste nell'ordine numerato in cui sono elencate per mantenere la coerenza (partendo dalla registrazione degli utenti, passando per l'accreditamento con l'admin Gestore, fino ad arrivare alla creazione e approvazione dei prodotti).
+2.  **Configura la variabile baseUrl**: 
+    *   **Se usi l'ambiente Locale**: Crea un "Environment" (o usa variabili globali) e aggiungi una variabile `baseUrl` con valore `http://localhost:8080`.
+    *   **Se usi GitHub Codespaces**: 
+        1. Su Codespaces, in basso vai nel tab **Ports** (vicino al Terminale).
+        2. Clicca col tasto destro sulla porta `8080` e imposta **"Port Visibility" su "Public"** (fondamentale, altrimenti Postman verrà bloccato!).
+        3. Fai nuovamente tasto destro e seleziona **"Copy Forwarded Address"** (avrà un formato simile a: `https://nome-random-8080.app.github.dev`).
+        4. Incolla questo link in Postman come valore della variabile `baseUrl` (**senza lo slash `/` finale**).
+3.  **Gestione dei Token JWT**: La collection include degli script (tab "Tests") che catturano automaticamente i token JWT ricevuti dopo un login e li salvano come variabili di ambiente. Non avrai bisogno di copiarli manualmente!
+4.  **Flusso Consigliato**: Esegui le richieste rigorosamente nell'ordine in cui sono elencate per mantenere la coerenza (partendo dalla registrazione utenti).
 
 
 ---
