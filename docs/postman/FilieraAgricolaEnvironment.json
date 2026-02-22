@@ -1,0 +1,220 @@
+{
+	"id": "f1237af4-3a3f-46ad-a188-11f0b6017614",
+	"name": "FilieraAgricolaEnvironmentCompleto",
+	"values": [
+		{
+			"key": "baseUrl",
+			"value": "http://localhost:8080",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "gestore_token",
+			"value": "",
+			"type": "secret",
+			"enabled": true
+		},
+		{
+			"key": "produttore_token",
+			"value": "",
+			"type": "secret",
+			"enabled": true
+		},
+		{
+			"key": "curatore_token",
+			"value": "",
+			"type": "secret",
+			"enabled": true
+		},
+		{
+			"key": "acquirente_token",
+			"value": "",
+			"type": "secret",
+			"enabled": true
+		},
+		{
+			"key": "distributore_token",
+			"value": "",
+			"type": "secret",
+			"enabled": true
+		},
+		{
+			"key": "user_id_gestore",
+			"value": "",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "user_id_produttore",
+			"value": "",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "user_id_acquirente",
+			"value": "",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "user_id_curatore",
+			"value": "",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "user_id_distributore",
+			"value": "",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "prodotto_id",
+			"value": "",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "submission_id_prodotto",
+			"value": "",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "lotto_id",
+			"value": "",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "item_id",
+			"value": "",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "pacchetto_id",
+			"value": "",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "submission_id_pacchetto",
+			"value": "",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "ordine_id",
+			"value": "",
+			"type": "any",
+			"enabled": true
+		},
+		{
+			"key": "id_animatore",
+			"value": "",
+			"type": "any",
+			"enabled": true
+		},
+		{
+			"key": "id_produttore1",
+			"value": "",
+			"type": "any",
+			"enabled": true
+		},
+		{
+			"key": "id_trasformatore1",
+			"value": "",
+			"type": "any",
+			"enabled": true
+		},
+		{
+			"key": "token_gestore",
+			"value": "",
+			"type": "any",
+			"enabled": true
+		},
+		{
+			"key": "token_animatore",
+			"value": "",
+			"type": "any",
+			"enabled": true
+		},
+		{
+			"key": "id_evento1",
+			"value": "",
+			"type": "any",
+			"enabled": true
+		},
+		{
+			"key": "id_evento2",
+			"value": "",
+			"type": "any",
+			"enabled": true
+		},
+		{
+			"key": "token_curatore",
+			"value": "",
+			"type": "any",
+			"enabled": true
+		},
+		{
+			"key": "id_trasformatore",
+			"value": "",
+			"type": "any",
+			"enabled": true
+		},
+		{
+			"key": "id_prod_milano",
+			"value": "",
+			"type": "any",
+			"enabled": true
+		},
+		{
+			"key": "id_trasf_bologna",
+			"value": "",
+			"type": "any",
+			"enabled": true
+		},
+		{
+			"key": "id_evento_to",
+			"value": "",
+			"type": "any",
+			"enabled": true
+		},
+		{
+			"key": "id_distr_roma",
+			"value": "",
+			"type": "any",
+			"enabled": true
+		},
+		{
+			"key": "id_evento_fi",
+			"value": "",
+			"type": "any",
+			"enabled": true
+		},
+		{
+			"key": "id_prod_napoli",
+			"value": "",
+			"type": "any",
+			"enabled": true
+		},
+		{
+			"key": "id_prod_palermo",
+			"value": "",
+			"type": "any",
+			"enabled": true
+		},
+		{
+			"key": "id_evento_ba",
+			"value": "",
+			"type": "any",
+			"enabled": true
+		}
+	],
+	"color": null,
+	"_postman_variable_scope": "environment",
+	"_postman_exported_at": "2026-02-17T21:27:53.971Z",
+	"_postman_exported_using": "Postman/11.82.6"
+}

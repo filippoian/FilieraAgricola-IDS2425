@@ -4,6 +4,7 @@ import lombok.Data;
 
 @Data
 public class AggiungiAlCarrelloRequest {
-    private Long prodottoId;
+    private Long marketplaceItemId;
+    private Long pacchettoId;
     private int quantita;
 }

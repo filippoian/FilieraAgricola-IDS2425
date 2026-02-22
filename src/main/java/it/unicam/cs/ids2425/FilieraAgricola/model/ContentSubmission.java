@@ -19,9 +19,7 @@ public class ContentSubmission {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    // --- Identificazione Polimorfica del Contenuto ---
-    // Come da specifica, usiamo ID e Tipo per collegare
-    // a diverse entità (Prodotto, Evento, FilieraPoint).
+    // Identificazione Polimorfica del Contenuto
 
     /**
      * L'ID dell'entità sottomessa (es. Prodotto ID: 15).
@@ -35,7 +33,7 @@ public class ContentSubmission {
     @Column(nullable = false)
     private String submittableEntityType;
 
-    // --- Gestione dello Stato ---
+    // Gestione dello Stato
 
     /**
      * Lo stato attuale del ciclo di vita, persistito nel DB.
@@ -99,8 +97,7 @@ public class ContentSubmission {
         this.updateState();
     }
 
-    // --- Metodi delegati allo Stato ---
-    // L'entità delega le azioni al suo oggetto di stato corrente.
+    // Metodi delegati allo Stato
 
     public void sottometti() {
         this.state.sottometti(this);

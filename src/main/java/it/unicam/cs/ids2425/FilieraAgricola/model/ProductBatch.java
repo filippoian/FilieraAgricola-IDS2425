@@ -2,9 +2,9 @@ package it.unicam.cs.ids2425.FilieraAgricola.model;
 
 import jakarta.persistence.*;
 import lombok.Data;
-import lombok.EqualsAndHashCode; // <--- FONDAMENTALE
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
-import lombok.ToString; // <--- FONDAMENTALE
+import lombok.ToString;
 import java.time.LocalDate;
 import java.util.HashSet;
 import java.util.Set;
@@ -30,7 +30,7 @@ public class ProductBatch {
     @Column(nullable = false, unique = true)
     private String codiceLottoUnivoco;
 
-    // --- INTERRUZIONE LOOP QUI SOTTO ---
+    // Interruzione loop per toString/equals
 
     @OneToMany(mappedBy = "inputBatch")
     @ToString.Exclude

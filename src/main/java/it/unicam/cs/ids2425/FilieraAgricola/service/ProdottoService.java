@@ -28,17 +28,15 @@ public class ProdottoService {
     private final ProdottoRepository prodottoRepository;
     private final UtenteRepository utenteRepository;
 
-
-     // Il campo private final ContentSubmissionRepository submissionRepository;
-     private final ContentSubmissionRepository submissionRepository;
-
+    private final ContentSubmissionRepository submissionRepository;
 
     @Transactional
     public ProdottoResponse creaProdotto(ProdottoRequest request) {
         Utente utente = utenteRepository.findById(request.getUtenteId())
                 .orElseThrow(() -> new RuntimeException("Utente non trovato con id: " + request.getUtenteId()));
 
-        // Controllo sicurezza: solo l'utente stesso o un admin possono creare un prodotto a suo nome.
+        // Controllo sicurezza: solo l'utente stesso o un admin possono creare un
+        // prodotto a suo nome.
         checkOwnershipOrAdmin(request.getUtenteId(), "creare prodotti per questo utente");
 
         Prodotto prodotto = new Prodotto();
@@ -51,16 +49,12 @@ public class ProdottoService {
 
         Prodotto savedProdotto = prodottoRepository.save(prodotto);
 
+        // Crea la sottomissione in stato BOZZA
+        ContentSubmission submission = new ContentSubmission(savedProdotto.getId(), "PRODOTTO");
+        ContentSubmission savedSubmission = submissionRepository.save(submission);
 
-         // Le righe dentro creaProdotto che istanziano new ContentSubmission(...).
-
-         // Crea la sottomissione in stato BOZZA
-         ContentSubmission submission = new ContentSubmission(savedProdotto.getId(), "PRODOTTO");
-         ContentSubmission savedSubmission = submissionRepository.save(submission);
-
-         savedProdotto.setSubmission(savedSubmission);
-         prodottoRepository.save(savedProdotto);
-
+        savedProdotto.setSubmission(savedSubmission);
+        prodottoRepository.save(savedProdotto);
 
         return new ProdottoResponse(savedProdotto);
     }
@@ -78,7 +72,8 @@ public class ProdottoService {
     }
 
     /**
-     * Ritorna un singolo prodotto. Se non APPROVATO, è visibile solo al proprietario o a un Curatore/Gestore.
+     * Ritorna un singolo prodotto. Se non APPROVATO, è visibile solo al
+     * proprietario o a un Curatore/Gestore.
      */
     public ProdottoResponse getProdottoById(Long id) {
         Prodotto prodotto = prodottoRepository.findById(id)
@@ -89,7 +84,7 @@ public class ProdottoService {
             Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 
             // Usiamo checkOwnershipOrAdmin basato sull'ID del proprietario del prodotto
-            if(prodotto.getUtente() == null) {
+            if (prodotto.getUtente() == null) {
                 throw new AccessDeniedException("Prodotto senza proprietario, accesso negato.");
             }
             checkOwnershipOrAdmin(prodotto.getUtente().getId(), "visualizzare questo prodotto non approvato");
@@ -99,7 +94,8 @@ public class ProdottoService {
 
     @Transactional(readOnly = true)
     public List<ProdottoResponse> getProdottiByUtente(Long utenteId) {
-        // Controllo sicurezza: solo il proprietario o un admin possono vedere la lista completa dei prodotti
+        // Controllo sicurezza: solo il proprietario o un admin possono vedere la lista
+        // completa dei prodotti
         checkOwnershipOrAdmin(utenteId, "visualizzare questa lista di prodotti");
 
         return prodottoRepository.findByUtenteId(utenteId)
@@ -114,7 +110,7 @@ public class ProdottoService {
                 .orElseThrow(() -> new RuntimeException("Prodotto non trovato con id: " + id));
 
         // Controllo permessi (solo proprietario o admin)
-        if(prodotto.getUtente() == null) {
+        if (prodotto.getUtente() == null) {
             throw new AccessDeniedException("Prodotto senza proprietario, impossibile aggiornare.");
         }
         checkOwnershipOrAdmin(prodotto.getUtente().getId(), "aggiornare questo prodotto");
@@ -125,17 +121,14 @@ public class ProdottoService {
         prodotto.setCertificazioni(request.getCertificazioni());
         prodotto.setMetodiColtivazione(request.getMetodiColtivazione());
 
-
-        //Le righe dentro aggiornaProdotto che reimpostano lo stato a BOZZA.
-
-         // Se modificato, torna in BOZZA
-         ContentSubmission submission = prodotto.getSubmission();
-         if (submission != null && submission.getStatus() != StatoContenuto.BOZZA) {
+        // Se modificato, torna in BOZZA
+        ContentSubmission submission = prodotto.getSubmission();
+        if (submission != null && submission.getStatus() != StatoContenuto.BOZZA) {
             submission.setStatus(StatoContenuto.BOZZA);
             submission.setFeedbackCuratore("Modificato, richiede nuova approvazione.");
             submission.updateState();
             submissionRepository.save(submission);
-         }
+        }
 
         return new ProdottoResponse(prodottoRepository.save(prodotto));
     }
@@ -146,7 +139,7 @@ public class ProdottoService {
                 .orElseThrow(() -> new RuntimeException("Prodotto non trovato con id: " + id));
 
         // Controllo permessi (solo proprietario o admin)
-        if(prodotto.getUtente() == null) {
+        if (prodotto.getUtente() == null) {
             throw new AccessDeniedException("Prodotto senza proprietario, impossibile eliminare.");
         }
         checkOwnershipOrAdmin(prodotto.getUtente().getId(), "eliminare questo prodotto");
@@ -166,7 +159,7 @@ public class ProdottoService {
             throw new AccessDeniedException("Nessun utente autenticato.");
         }
 
-        // 1. Controlla se l'utente è un Curatore o Gestore
+        // Controlla se l'utente è un Curatore o Gestore
         boolean isAdmin = authentication.getAuthorities().stream()
                 .map(GrantedAuthority::getAuthority)
                 .anyMatch(role -> role.equals("ROLE_CURATORE") || role.equals("ROLE_GESTORE"));
@@ -175,7 +168,7 @@ public class ProdottoService {
             return; // Gli admin possono procedere
         }
 
-        // 2. Controlla se l'utente è il proprietario
+        // Controlla se l'utente è il proprietario
         String userEmail = authentication.getName();
         Optional<Utente> utenteAttuale = utenteRepository.findByEmail(userEmail);
 

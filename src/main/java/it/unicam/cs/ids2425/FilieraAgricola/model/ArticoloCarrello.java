@@ -34,12 +34,20 @@ public class ArticoloCarrello {
     private Carrello carrello;
 
     /**
-     * Il prodotto associato a questo articolo del carrello.
-     * Rappresenta cosa l'utente sta acquistando.
+     * L'articolo del marketplace associato a questo articolo del carrello
+     * (opzionale se è un pacchetto).
      */
     @ManyToOne
-    @JoinColumn(name = "prodotto_id", nullable = false)
-    private Prodotto prodotto;
+    @JoinColumn(name = "marketplace_item_id", nullable = true)
+    private MarketplaceItem marketplaceItem;
+
+    /**
+     * Il pacchetto associato a questo articolo del carrello (opzionale se è un
+     * marketplace item).
+     */
+    @ManyToOne
+    @JoinColumn(name = "pacchetto_id", nullable = true)
+    private Pacchetto pacchetto;
 
     /**
      * La quantità del prodotto che l'utente intende acquistare.
@@ -49,15 +57,23 @@ public class ArticoloCarrello {
     private int quantita;
 
     /**
-     * Costruttore per creare un nuovo articolo da aggiungere al carrello.
-     *
-     * @param carrello Il carrello di destinazione.
-     * @param prodotto Il prodotto selezionato.
-     * @param quantita La quantità desiderata.
+     * Costruttore per creare un nuovo articolo da aggiungere al carrello
+     * (Marketplace Item).
      */
-    public ArticoloCarrello(Carrello carrello, Prodotto prodotto, int quantita) {
+    public ArticoloCarrello(Carrello carrello, MarketplaceItem marketplaceItem, int quantita) {
         this.carrello = carrello;
-        this.prodotto = prodotto;
+        this.marketplaceItem = marketplaceItem;
+        this.pacchetto = null;
+        this.quantita = quantita;
+    }
+
+    /**
+     * Costruttore per creare un nuovo pacchetto da aggiungere al carrello.
+     */
+    public ArticoloCarrello(Carrello carrello, Pacchetto pacchetto, int quantita) {
+        this.carrello = carrello;
+        this.marketplaceItem = null;
+        this.pacchetto = pacchetto;
         this.quantita = quantita;
     }
 }

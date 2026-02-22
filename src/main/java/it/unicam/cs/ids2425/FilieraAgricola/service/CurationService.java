@@ -56,10 +56,7 @@ public class CurationService {
         // Delega l'azione all'oggetto di stato corrente (InRevisioneState)
         submission.approva();
 
-        // TODO: Aggiungere logica post-approvazione (es. aggiornare Prodotto.isApproved)
-        // Sebbene lo stato sia centralizzato, potremmo voler de-normalizzare
-        // un flag "isApproved" sull'entità Prodotto/Evento per query più veloci.
-        // Per ora, lo stato è solo in ContentSubmission.
+        // TODO: Aggiungere logica post-approvazione (es. aggiornare flag isApproved)
 
         return submissionRepository.save(submission);
     }
@@ -94,7 +91,6 @@ public class CurationService {
         return submissionRepository.save(submission);
     }
 
-
     private ContentSubmission findSubmissionById(Long submissionId) {
         ContentSubmission submission = submissionRepository.findById(submissionId)
                 .orElseThrow(() -> new RuntimeException("Sottomissione non trovata con id: " + submissionId));
@@ -111,6 +107,7 @@ public class CurationService {
     @Transactional(readOnly = true)
     public ContentSubmission findSubmissionByEntity(Long entityId, String entityType) {
         return submissionRepository.findBySubmittableEntityIdAndSubmittableEntityType(entityId, entityType)
-                .orElseThrow(() -> new RuntimeException("Nessuna sottomissione trovata per " + entityType + " con id: " + entityId));
+                .orElseThrow(() -> new RuntimeException(
+                        "Nessuna sottomissione trovata per " + entityType + " con id: " + entityId));
     }
 }

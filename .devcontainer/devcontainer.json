@@ -1,0 +1,32 @@
+{
+	"name": "Java & MySQL (Docker Compose)",
+	"dockerComposeFile": "docker-compose.yml",
+	"service": "app",
+	"workspaceFolder": "/workspace",
+	"features": {
+		"ghcr.io/devcontainers/features/java:1": {
+			"version": "21",
+			"jdkType": "default",
+			"installMaven": "true",
+			"mavenVersion": "3.9.5"
+		}
+	},
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"vscjava.vscode-java-pack",
+				"vmware.vscode-spring-boot",
+				"vscjava.vscode-spring-boot-dashboard",
+				"cweijan.vscode-mysql-manager2"
+			]
+		}
+	},
+	"forwardPorts": [
+		8080,
+		3306
+	],
+	"remoteUser": "vscode",
+	"containerEnv": {
+		"DB_PASSWORD": "root"
+	}
+}
