@@ -1,0 +1,433 @@
+--- First 50 Elements ---
+Tag: {http://schema.omg.org/spec/XMI/2.1}XMI, Attribs: {'{http://schema.omg.org/spec/XMI/2.1}version': '2.1'}
+Tag: {http://schema.omg.org/spec/XMI/2.1}Documentation, Attribs: {'exporter': 'Visual Paradigm', 'exporterVersion': '7.0.2'}
+Tag: {http://schema.omg.org/spec/XMI/2.1}Extension, Attribs: {'extender': 'Visual Paradigm'}
+Tag: nickname, Attribs: {'exportedFromDifferentName': 'false'}
+Tag: {http://schema.omg.org/spec/XMI/2.1}Extension, Attribs: {'extender': 'Visual Paradigm'}
+Tag: projectProperties, Attribs: {}
+Tag: projectProperty, Attribs: {'name': 'author', 'value': 'Tiziano Chiarini'}
+Tag: projectProperty, Attribs: {'name': 'description', 'value': '<html>\r\n  <head>\r\n    <style type="text/css">\n      <!--\n        body { color: #000000; font-family: Dialog; font-size: 12px }\n      -->\n    </style>\r\n    \r\n  </head>\r\n  <body>\r\n  </body>\r\n</html>\r\n'}
+Tag: ProjectOptions, Attribs: {}
+Tag: IDPositionRotation, Attribs: {}
+Tag: Positions, Attribs: {}
+Tag: Position, Attribs: {'id': 'BPTask', 'value': '\\u0004'}
+Tag: Position, Attribs: {'id': 'BPSubProcess', 'value': '\\u0004'}
+Tag: Position, Attribs: {'id': 'BPGateway', 'value': '\\u0004'}
+Tag: Position, Attribs: {'id': 'BPPool', 'value': '\\u0002'}
+Tag: Position, Attribs: {'id': 'BPLane', 'value': '\\u000b'}
+Tag: Position, Attribs: {'id': 'BPDataObject', 'value': '\\u0008'}
+Tag: Position, Attribs: {'id': 'BPDataInput', 'value': '\\u0008'}
+Tag: Position, Attribs: {'id': 'BPDataOutput', 'value': '\\u0008'}
+Tag: Position, Attribs: {'id': 'BPDataStore', 'value': '\\u0008'}
+Tag: Position, Attribs: {'id': 'BPStartEvent', 'value': '\\u0004'}
+Tag: Position, Attribs: {'id': 'BPIntermediateEvent', 'value': '\\u0004'}
+Tag: Position, Attribs: {'id': 'BPEndEvent', 'value': '\\u0004'}
+Tag: Position, Attribs: {'id': 'BPGroup', 'value': '\\u0004'}
+Tag: Position, Attribs: {'id': 'BPChoreographyTask', 'value': '\\u0004'}
+Tag: Position, Attribs: {'id': 'BPChoreographySubProcess', 'value': '\\u0004'}
+Tag: Position, Attribs: {'id': 'BPCallActivity', 'value': '\\u0004'}
+Tag: Position, Attribs: {'id': 'BPCallChoreographyActivity', 'value': '\\u0004'}
+Tag: Position, Attribs: {'id': 'BPTextAnnotation', 'value': '\\u0004'}
+Tag: Position, Attribs: {'id': 'BPMessage', 'value': '\\u0004'}
+Tag: Position, Attribs: {'id': 'BPSequenceFlow', 'value': '\\u000e'}
+Tag: Position, Attribs: {'id': 'BPMessageFlow', 'value': '\\u000e'}
+Tag: Position, Attribs: {'id': 'BPAssociation', 'value': '\\u000e'}
+Tag: Position, Attribs: {'id': 'BPDataAssociation', 'value': '\\u000e'}
+Tag: Positions, Attribs: {}
+Tag: Rotation, Attribs: {'id': 'BPTask', 'value': '\\u0000'}
+Tag: Rotation, Attribs: {'id': 'BPSubProcess', 'value': '\\u0000'}
+Tag: Rotation, Attribs: {'id': 'BPGateway', 'value': '\\u0000'}
+Tag: Rotation, Attribs: {'id': 'BPPool', 'value': '\\u0000'}
+Tag: Rotation, Attribs: {'id': 'BPLane', 'value': '\\u0000'}
+Tag: Rotation, Attribs: {'id': 'BPDataObject', 'value': '\\u0000'}
+Tag: Rotation, Attribs: {'id': 'BPDataInput', 'value': '\\u0000'}
+Tag: Rotation, Attribs: {'id': 'BPDataOutput', 'value': '\\u0000'}
+Tag: Rotation, Attribs: {'id': 'BPDataStore', 'value': '\\u0000'}
+Tag: Rotation, Attribs: {'id': 'BPStartEvent', 'value': '\\u0000'}
+Tag: Rotation, Attribs: {'id': 'BPIntermediateEvent', 'value': '\\u0000'}
+Tag: Rotation, Attribs: {'id': 'BPEndEvent', 'value': '\\u0000'}
+Tag: Rotation, Attribs: {'id': 'BPGroup', 'value': '\\u0000'}
+Tag: Rotation, Attribs: {'id': 'BPChoreographyTask', 'value': '\\u0000'}
+Tag: Rotation, Attribs: {'id': 'BPChoreographySubProcess', 'value': '\\u0000'}
+
+[FOUND ATTRIB] Tag: property, Attrib value: Utente Generico
+
+[FOUND ATTRIB] Tag: property, Attrib value: Utente Generico
+
+[FOUND ATTRIB] Tag: property, Attrib value: Utente Generico
+
+[FOUND ATTRIB] Tag: property, Attrib value: Utente Generico
+
+[FOUND ATTRIB] Tag: ownedMember, Attrib name: Utente Generico
+
+[FOUND ATTRIB] Tag: ownedMember, Attrib name: Utente Generico
+
+[FOUND ATTRIB] Tag: property, Attrib value: Utente Generico
+
+[FOUND ATTRIB] Tag: property, Attrib value: Utente Generico
+
+[FOUND ATTRIB] Tag: reference, Attrib name: Utente Generico
+
+[FOUND ATTRIB] Tag: reference, Attrib name: Utente Generico
+
+[FOUND ATTRIB] Tag: property, Attrib value: Utente Generico
+
+[FOUND ATTRIB] Tag: property, Attrib value: Utente Generico
+
+[FOUND ATTRIB] Tag: reference, Attrib name: Utente Generico
+
+[FOUND ATTRIB] Tag: reference, Attrib name: Utente Generico
+
+[FOUND ATTRIB] Tag: property, Attrib value: Utente Generico
+
+[FOUND ATTRIB] Tag: property, Attrib value: Utente Generico
+
+[FOUND ATTRIB] Tag: reference, Attrib name: Utente Generico
+
+[FOUND ATTRIB] Tag: reference, Attrib name: Utente Generico
+
+[FOUND ATTRIB] Tag: genericType, Attrib {http://schema.omg.org/spec/XMI/2.1}value: List<Utente>
+
+[FOUND ATTRIB] Tag: genericType, Attrib {http://schema.omg.org/spec/XMI/2.1}value: List<Utente>
+
+[FOUND ATTRIB] Tag: lifeline, Attrib name: Utente Repository
+
+[FOUND ATTRIB] Tag: lifeline, Attrib name: Utente Repository
+
+[FOUND ATTRIB] Tag: ownedAttribute, Attrib name: Utente Repository
+
+[FOUND ATTRIB] Tag: ownedAttribute, Attrib name: Utente Repository
+
+[FOUND ATTRIB] Tag: ownedMember, Attrib name: Utente
+
+[FOUND ATTRIB] Tag: ownedMember, Attrib name: Utente
+
+[FOUND ATTRIB] Tag: ownedMember, Attrib name: RuoloUtente
+
+[FOUND ATTRIB] Tag: ownedMember, Attrib name: RuoloUtente
+
+[FOUND ATTRIB] Tag: lifeline, Attrib name: UtenteRepository
+
+[FOUND ATTRIB] Tag: lifeline, Attrib name: UtenteRepository
+
+[FOUND ATTRIB] Tag: ownedAttribute, Attrib name: UtenteRepository
+
+[FOUND ATTRIB] Tag: ownedAttribute, Attrib name: UtenteRepository
+
+[FOUND ATTRIB] Tag: atextualAnalysisDocument, Attrib value: <head>
+    <style type="text/css">
+      <!--
+        body { color: #000000; font-family: Dialog; font-size: 22px }
+      -->
+    </style>
+    
+  </head>
+  <body>
+    <p>
+      
+    </p>
+    <p dir="ltr" line-height="1.38" style="margin-bottom:12pt;text-align:justify;margin-top:12pt;">
+      <b charset="utf-8" id="docs-internal-guid-77bb9861-7fff-cd69-2fed-9ced64051099" style="font-weight:normal;"><span font-style="normal" font-variant="normal" style="color:#000000;font-weight:400;vertical-align:baseline;font-size:11pt;font-family:Arial,sans-serif;" text-decoration="none" white-space="pre-wrap"><font face="Arial,sans-serif" size="11pt" style="color:#000000;font-size:11pt;">Il 
+      progetto mira a creare una piattaforma che permetta la gestione, 
+      valorizzazione e tracciabilit&#224; dei prodotti agricoli di un territorio 
+      comunale. La piattaforma consentir&#224; di caricare, visualizzare e 
+      condividere informazioni legate alla filiera agricola, includendo dati 
+      relativi alla produzione, trasformazione e vendita di prodotti locali. 
+      Sar&#224; pensata come uno strumento per promuovere il territorio, 
+      permettendo a chiunque di comprendere la provenienza e la qualit&#224; dei 
+      prodotti tipici. Inoltre, la piattaforma faciliter&#224; l&#8217;organizzazione di 
+      eventi locali, come fiere e visite guidate alle aziende.</font></span>&nbsp;</b>
+    </p>
+    <p dir="ltr" line-height="1.38" style="margin-bottom:12pt;text-align:justify;margin-top:12pt;">
+      <b charset="utf-8" id="docs-internal-guid-77bb9861-7fff-cd69-2fed-9ced64051099" style="font-weight:normal;"><span font-style="normal" font-variant="normal" style="color:#000000;font-weight:400;vertical-align:baseline;font-size:11pt;font-family:Arial,sans-serif;" text-decoration="none" white-space="pre-wrap"><font face="Arial,sans-serif" size="11pt" style="color:#000000;font-size:11pt;">La 
+      piattaforma permette la tracciabilit&#224; di ogni prodotto attraverso i 
+      diversi attori della filiera, visualizzando l&#8217;intero ciclo produttivo. 
+      Il caricamento di informazioni e contenuti sar&#224; riferito a specifici 
+      punti della filiera, come aziende agricole e mercati sul territorio 
+      comunale. Ad esempio, i contenuti potranno includere dati relativi a 
+      certificazioni, metodi di coltivazione e pratiche di produzione. La 
+      piattaforma dovr&#224; inoltre fornire la possibilit&#224; di visualizzare tutti i 
+      punti della filiera su una mappa interattiva.</font></span>&nbsp;</b>
+    </p>
+    <p dir="ltr" line-height="1.38" style="margin-bottom:0pt;text-align:justify;margin-top:0pt;">
+      <b charset="utf-8" id="docs-internal-guid-77bb9861-7fff-cd69-2fed-9ced64051099" style="font-weight:normal;"><span font-style="normal" font-variant="normal" style="color:#000000;font-weight:400;vertical-align:baseline;font-size:11pt;font-family:Arial,sans-serif;" text-decoration="none" white-space="pre-wrap"><font face="Arial,sans-serif" size="11pt" style="color:#000000;font-size:11pt;">Si 
+      immaginano almeno i seguenti attori:</font></span>&nbsp;</b>
+    </p>
+    <ol style="margin-bottom:0;margin-top:0;">
+      <li aria-level="1" dir="ltr" font-style="normal" font-variant="normal" style="color:#000000;list-style-type:decimal;font-weight:400;vertical-align:baseline;font-size:11pt;font-family:Arial,sans-serif;" text-decoration="none" white-space="pre">
+        <p dir="ltr" line-height="1.38" role="presentation" style="margin-bottom:0pt;margin-top:12pt;">
+          <b charset="utf-8" id="docs-internal-guid-77bb9861-7fff-cd69-2fed-9ced64051099" style="font-weight:normal;"><span font-style="normal" font-variant="normal" style="color:#000000;font-weight:700;vertical-align:baseline;font-size:11pt;font-family:Arial,sans-serif;" text-decoration="none" white-space="pre-wrap"><font face="Arial,sans-serif" size="11pt" style="color:#000000;font-size:11pt;">Produttore</font></span><font face="Arial,sans-serif" size="11pt" style="color:#000000;font-size:11pt;"><span font-style="normal" font-variant="normal" style="color:#000000;font-weight:400;vertical-align:baseline;font-size:11pt;font-family:Arial,sans-serif;" text-decoration="none" white-space="pre-wrap">: 
+          pu&#242; caricare informazioni sui propri prodotti (metodi di 
+          coltivazione, certificazioni ecc.) e venderli nel marketplace.</span></font>&nbsp;</b>
+        </p>
+      </li>
+      <li aria-level="1" dir="ltr" font-style="normal" font-variant="normal" style="color:#000000;list-style-type:decimal;font-weight:400;vertical-align:baseline;font-size:11pt;font-family:Arial,sans-serif;" text-decoration="none" white-space="pre">
+        <p dir="ltr" line-height="1.38" role="presentation" style="margin-bottom:0pt;margin-top:0pt;">
+          <b charset="utf-8" id="docs-internal-guid-77bb9861-7fff-cd69-2fed-9ced64051099" style="font-weight:normal;"><span font-style="normal" font-variant="normal" style="color:#000000;font-weight:700;vertical-align:baseline;font-size:11pt;font-family:Arial,sans-serif;" text-decoration="none" white-space="pre-wrap"><font face="Arial,sans-serif" size="11pt" style="color:#000000;font-size:11pt;">Trasformatore</font></span><font face="Arial,sans-serif" size="11pt" style="color:#000000;font-size:11pt;"><span font-style="normal" font-variant="normal" style="color:#000000;font-weight:400;vertical-align:baseline;font-size:11pt;font-family:Arial,sans-serif;" text-decoration="none" white-space="pre-wrap">: 
+          pu&#242; caricare informazioni sui processi di trasformazione dei 
+          prodotti e sulle certificazioni di qualit&#224;, con la possibilit&#224; di 
+          collegare le fasi della produzione ai produttori locali. Pu&#242; vendere 
+          i prodotti nel marketplace.</span></font>&nbsp;</b>
+        </p>
+      </li>
+      <li aria-level="1" dir="ltr" font-style="normal" font-variant="normal" style="color:#000000;list-style-type:decimal;font-weight:400;vertical-align:baseline;font-size:11pt;font-family:Arial,sans-serif;" text-decoration="none" white-space="pre">
+        <p dir="ltr" line-height="1.38" role="presentation" style="margin-bottom:0pt;margin-top:0pt;">
+          <b charset="utf-8" id="docs-internal-guid-77bb9861-7fff-cd69-2fed-9ced64051099" style="font-weight:normal;"><span font-style="normal" font-variant="normal" style="color:#000000;font-weight:700;vertical-align:baseline;font-size:11pt;font-family:Arial,sans-serif;" text-decoration="none" white-space="pre-wrap"><font face="Arial,sans-serif" size="11pt" style="color:#000000;font-size:11pt;">Distributore 
+          di Tipicit&#224;</font></span><font face="Arial,sans-serif" size="11pt" style="color:#000000;font-size:11pt;"><span font-style="normal" font-variant="normal" style="color:#000000;font-weight:400;vertical-align:baseline;font-size:11pt;font-family:Arial,sans-serif;" text-decoration="none" white-space="pre-wrap">: 
+          pu&#242; caricare informazioni relative ai prodotti in vendita. Questi 
+          prodotti possono essere venduti singolarmente tramite il 
+          marketplace. Inoltre, il distributore pu&#242; creare pacchetti di 
+          prodotti che combinano pi&#249; articoli in un&#8217;unica offerta, favorendo 
+          l&#8217;acquisto di esperienze gastronomiche legate al territorio.</span></font>&nbsp;</b>
+        </p>
+      </li>
+      <li aria-level="1" dir="ltr" font-style="normal" font-variant="normal" style="color:#000000;list-style-type:decimal;font-weight:400;vertical-align:baseline;font-size:11pt;font-family:Arial,sans-serif;" text-decoration="none" white-space="pre">
+        <p dir="ltr" line-height="1.38" role="presentation" style="margin-bottom:0pt;margin-top:0pt;">
+          <b charset="utf-8" id="docs-internal-guid-77bb9861-7fff-cd69-2fed-9ced64051099" style="font-weight:normal;"><span font-style="normal" font-variant="normal" style="color:#000000;font-weight:700;vertical-align:baseline;font-size:11pt;font-family:Arial,sans-serif;" text-decoration="none" white-space="pre-wrap"><font face="Arial,sans-serif" size="11pt" style="color:#000000;font-size:11pt;">Curatore</font></span><font face="Arial,sans-serif" size="11pt" style="color:#000000;font-size:11pt;"><span font-style="normal" font-variant="normal" style="color:#000000;font-weight:400;vertical-align:baseline;font-size:11pt;font-family:Arial,sans-serif;" text-decoration="none" white-space="pre-wrap">: 
+          verifica i contenuti caricati dai produttori, trasformatori e 
+          venditori. Gestisce la validit&#224; delle informazioni e le approva 
+          prima della pubblicazione.&nbsp;</span></font>&nbsp;</b>
+        </p>
+      </li>
+      <li aria-level="1" dir="ltr" font-style="normal" font-variant="normal" style="color:#000000;list-style-type:decimal;font-weight:400;vertical-align:baseline;font-size:11pt;font-family:Arial,sans-serif;" text-decoration="none" white-space="pre">
+        <p dir="ltr" line-height="1.38" role="presentation" style="margin-bottom:0pt;margin-top:0pt;">
+          <b charset="utf-8" id="docs-internal-guid-77bb9861-7fff-cd69-2fed-9ced64051099" style="font-weight:normal;"><span font-style="normal" font-variant="normal" style="color:#000000;font-weight:700;vertical-align:baseline;font-size:11pt;font-family:Arial,sans-serif;" text-decoration="none" white-space="pre-wrap"><font face="Arial,sans-serif" size="11pt" style="color:#000000;font-size:11pt;">Animatore 
+          della Filiera:</font></span><span font-style="normal" font-variant="normal" style="color:#980000;font-weight:400;vertical-align:baseline;font-size:11pt;font-family:Arial,sans-serif;" text-decoration="none" white-space="pre-wrap"><font face="Arial,sans-serif" size="11pt" style="color:#980000;font-size:11pt;">&nbsp;</font></span><span font-style="normal" font-variant="normal" style="color:#000000;font-weight:400;vertical-align:baseline;font-size:11pt;font-family:Arial,sans-serif;" text-decoration="none" white-space="pre-wrap"><font face="Arial,sans-serif" size="11pt" style="color:#000000;font-size:11pt;">pu&#242; 
+          organizzare eventi e fiere invitando produttori, trasformatori e 
+          venditori. Inoltre, pu&#242; proporre visite alle aziende, come eventi di 
+          presentazione e tour di degustazione.</font></span>&nbsp;</b>
+        </p>
+      </li>
+      <li aria-level="1" dir="ltr" font-style="normal" font-variant="normal" style="color:#000000;list-style-type:decimal;font-weight:400;vertical-align:baseline;font-size:11pt;font-family:Arial,sans-serif;" text-decoration="none" white-space="pre">
+        <p dir="ltr" line-height="1.38" role="presentation" style="margin-bottom:0pt;margin-top:0pt;">
+          <b charset="utf-8" id="docs-internal-guid-77bb9861-7fff-cd69-2fed-9ced64051099" style="font-weight:normal;"><span font-style="normal" font-variant="normal" style="color:#000000;font-weight:700;vertical-align:baseline;font-size:11pt;font-family:Arial,sans-serif;" text-decoration="none" white-space="pre-wrap"><font face="Arial,sans-serif" size="11pt" style="color:#000000;font-size:11pt;">Acquirente</font></span><font face="Arial,sans-serif" size="11pt" style="color:#000000;font-size:11pt;"><span font-style="normal" font-variant="normal" style="color:#000000;font-weight:400;vertical-align:baseline;font-size:11pt;font-family:Arial,sans-serif;" text-decoration="none" white-space="pre-wrap">: 
+          accede alla piattaforma per informarsi sulla provenienza dei 
+          prodotti e pu&#242; acquistare dai vari attori della filiera. Pu&#242; inoltre 
+          prenotare la partecipazione a fiere ed eventi.</span></font>&nbsp;</b>
+        </p>
+      </li>
+      <li aria-level="1" dir="ltr" font-style="normal" font-variant="normal" style="color:#000000;list-style-type:decimal;font-weight:400;vertical-align:baseline;font-size:11pt;font-family:Arial,sans-serif;" text-decoration="none" white-space="pre">
+        <p dir="ltr" line-height="1.38" role="presentation" style="margin-bottom:0pt;margin-top:0pt;">
+          <b charset="utf-8" id="docs-internal-guid-77bb9861-7fff-cd69-2fed-9ced64051099" style="font-weight:normal;"><span font-style="normal" font-variant="normal" style="color:#000000;font-weight:700;vertical-align:baseline;font-size:11pt;font-family:Arial,sans-serif;" text-decoration="none" white-space="pre-wrap"><font face="Arial,sans-serif" size="11pt" style="color:#000000;font-size:11pt;">Utente 
+          Generico</font></span><font face="Arial,sans-serif" size="11pt" style="color:#000000;font-size:11pt;"><span font-style="normal" font-variant="normal" style="color:#000000;font-weight:400;vertical-align:baseline;font-size:11pt;font-family:Arial,sans-serif;" text-decoration="none" white-space="pre-wrap">: 
+          accede ai contenuti per informarsi sulla provenienza e la qualit&#224; 
+          dei prodotti locali.</span></font>&nbsp;</b>
+        </p>
+      </li>
+      <li aria-level="1" dir="ltr" font-style="normal" font-variant="normal" style="color:#000000;list-style-type:decimal;font-weight:400;vertical-align:baseline;font-size:11pt;font-family:Arial,sans-serif;" text-decoration="none" white-space="pre">
+        <p dir="ltr" line-height="1.38" role="presentation" style="margin-bottom:0pt;margin-top:0pt;">
+          <b charset="utf-8" id="docs-internal-guid-77bb9861-7fff-cd69-2fed-9ced64051099" style="font-weight:normal;"><span font-style="normal" font-variant="normal" style="color:#000000;font-weight:700;vertical-align:baseline;font-size:11pt;font-family:Arial,sans-serif;" text-decoration="none" white-space="pre-wrap"><font face="Arial,sans-serif" size="11pt" style="color:#000000;font-size:11pt;">Gestore 
+          della Piattaforma</font></span><font face="Arial,sans-serif" size="11pt" style="color:#000000;font-size:11pt;"><span font-style="normal" font-variant="normal" style="color:#000000;font-weight:400;vertical-align:baseline;font-size:11pt;font-family:Arial,sans-serif;" text-decoration="none" white-space="pre-wrap">: 
+          ha la responsabilit&#224; di gestire gli aspetti amministrativi della 
+          piattaforma, le autorizzazioni e gli accrediti per gli attori 
+          coinvolti.</span></font>&nbsp;</b>
+        </p>
+      </li>
+      <li aria-level="1" dir="ltr" font-style="normal" font-variant="normal" style="color:#000000;list-style-type:decimal;font-weight:400;vertical-align:baseline;font-size:11pt;font-family:Arial,sans-serif;" text-decoration="none" white-space="pre">
+        <p dir="ltr" line-height="1.38" role="presentation" style="margin-bottom:0pt;text-align:justify;margin-top:0pt;">
+          <b charset="utf-8" id="docs-internal-guid-77bb9861-7fff-cd69-2fed-9ced64051099" style="font-weight:normal;"><span font-style="normal" font-variant="normal" style="color:#000000;font-weight:700;vertical-align:baseline;font-size:11pt;font-family:Arial,sans-serif;" text-decoration="none" white-space="pre-wrap"><font face="Arial,sans-serif" size="11pt" style="color:#000000;font-size:11pt;">Sistemi 
+          Social destinatari di contenuti</font></span><font face="Arial,sans-serif" size="11pt" style="color:#000000;font-size:11pt;"><span font-style="normal" font-variant="normal" style="color:#000000;font-weight:400;vertical-align:baseline;font-size:11pt;font-family:Arial,sans-serif;" text-decoration="none" white-space="pre-wrap">:&nbsp; 
+          gli utenti che creano contenuti possono condividerli sui propri 
+          canali social.</span></font>&nbsp;</b>
+        </p>
+      </li>
+      <li aria-level="1" dir="ltr" font-style="normal" font-variant="normal" style="color:#000000;list-style-type:decimal;font-weight:400;vertical-align:baseline;font-size:11pt;font-family:Arial,sans-serif;" text-decoration="none" white-space="pre">
+        <p dir="ltr" line-height="1.38" role="presentation" style="margin-bottom:12pt;margin-top:0pt;">
+          <b charset="utf-8" id="docs-internal-guid-77bb9861-7fff-cd69-2fed-9ced64051099" style="font-weight:normal;"><span font-style="normal" font-variant="normal" style="color:#000000;font-weight:700;vertical-align:baseline;font-size:11pt;font-family:Arial,sans-serif;" text-decoration="none" white-space="pre-wrap"><font face="Arial,sans-serif" size="11pt" style="color:#000000;font-size:11pt;">Sistema 
+          OSM</font></span><font face="Arial,sans-serif" size="11pt" style="color:#000000;font-size:11pt;"><span font-style="normal" font-variant="normal" style="color:#000000;font-weight:400;vertical-align:baseline;font-size:11pt;font-family:Arial,sans-serif;" text-decoration="none" white-space="pre-wrap">: 
+          fornisce informazioni sulle mappe del territorio e la 
+          visualizzazione dei punti della filiera agricola.</span></font>&nbsp;</b>
+        </p>
+      </li>
+    </ol>
+    <h4 dir="ltr" line-height="1.38" style="margin-bottom:2pt;text-align:justify;margin-top:12pt;">
+      <span font-style="normal" font-variant="normal" style="color:#000000;font-weight:700;vertical-align:baseline;font-size:11pt;font-family:Arial,sans-serif;" text-decoration="none" white-space="pre-wrap"><font face="Arial,sans-serif" size="11pt" style="color:#000000;font-size:11pt;"><b>Vincoli 
+      e Dettagli Tecnici</b></font></span>
+    </h4>
+    <ul style="margin-bottom:0;margin-top:0;">
+      <li aria-level="1" dir="ltr" font-style="normal" font-variant="normal" style="color:#000000;list-style-type:disc;font-weight:400;vertical-align:baseline;font-size:11pt;font-family:Arial,sans-serif;" text-decoration="none" white-space="pre">
+        <p dir="ltr" line-height="1.38" role="presentation" style="margin-bottom:0pt;margin-top:12pt;">
+          <span font-style="normal" font-variant="normal" style="color:#000000;font-weight:400;vertical-align:baseline;font-size:11pt;font-family:Arial,sans-serif;" text-decoration="none" white-space="pre-wrap"><font face="Arial,sans-serif" size="11pt" style="color:#000000;font-size:11pt;">Il 
+          progetto deve essere sviluppato in Java e successivamente portato su </font></span><font face="Arial,sans-serif" size="11pt" style="color:#000000;font-size:11pt;"><span font-style="normal" font-variant="normal" style="color:#000000;font-weight:700;vertical-align:baseline;font-size:11pt;font-family:Arial,sans-serif;" text-decoration="none" white-space="pre-wrap"><b>Spring 
+          Boot</b></span><span font-style="normal" font-variant="normal" style="color:#000000;font-weight:400;vertical-align:baseline;font-size:11pt;font-family:Arial,sans-serif;" text-decoration="none" white-space="pre-wrap">.</span></font>
+        </p>
+      </li>
+      <li aria-level="1" dir="ltr" font-style="normal" font-variant="normal" style="color:#000000;list-style-type:disc;font-weight:400;vertical-align:baseline;font-size:11pt;font-family:Arial,sans-serif;" text-decoration="none" white-space="pre">
+        <p dir="ltr" line-height="1.38" role="presentation" style="margin-bottom:12pt;margin-top:0pt;">
+          <span font-style="normal" font-variant="normal" style="color:#000000;font-weight:400;vertical-align:baseline;font-size:11pt;font-family:Arial,sans-serif;" text-decoration="none" white-space="pre-wrap"><font face="Arial,sans-serif" size="11pt" style="color:#000000;font-size:11pt;">Lo 
+          strato di presentazione pu&#242; essere sviluppato con strumenti a scelta 
+          dello studente ed eventualmente pu&#242; limitarsi alla linea di comando 
+          e/o API REST.</font></span>
+        </p>
+      </li>
+      <li aria-level="1" dir="ltr" font-style="normal" font-variant="normal" style="color:#000000;list-style-type:disc;font-weight:400;vertical-align:baseline;font-size:11pt;font-family:Arial,sans-serif;" text-decoration="none" white-space="pre">
+        <p dir="ltr" line-height="1.38" role="presentation" style="margin-bottom:12pt;margin-top:12pt;">
+          <span font-style="normal" font-variant="normal" style="color:#000000;font-weight:400;vertical-align:baseline;font-size:11pt;font-family:Arial,sans-serif;" text-decoration="none" white-space="pre-wrap"><font face="Arial,sans-serif" size="11pt" style="color:#000000;font-size:11pt;">Si 
+          raccomanda di utilizzare almeno due design pattern (diverso dal 
+          Singleton).</font></span>
+        </p>
+      </li>
+    </ul>
+    <p>
+      &nbsp;
+    </p>
+  </body>
+
+[FOUND ATTRIB] Tag: atextualAnalysisDocument, Attrib value: <head>
+    <style type="text/css">
+      <!--
+        body { color: #000000; font-family: Dialog; font-size: 22px }
+      -->
+    </style>
+    
+  </head>
+  <body>
+    <p>
+      
+    </p>
+    <p dir="ltr" line-height="1.38" style="margin-bottom:12pt;text-align:justify;margin-top:12pt;">
+      <b charset="utf-8" id="docs-internal-guid-77bb9861-7fff-cd69-2fed-9ced64051099" style="font-weight:normal;"><span font-style="normal" font-variant="normal" style="color:#000000;font-weight:400;vertical-align:baseline;font-size:11pt;font-family:Arial,sans-serif;" text-decoration="none" white-space="pre-wrap"><font face="Arial,sans-serif" size="11pt" style="color:#000000;font-size:11pt;">Il 
+      progetto mira a creare una piattaforma che permetta la gestione, 
+      valorizzazione e tracciabilit&#224; dei prodotti agricoli di un territorio 
+      comunale. La piattaforma consentir&#224; di caricare, visualizzare e 
+      condividere informazioni legate alla filiera agricola, includendo dati 
+      relativi alla produzione, trasformazione e vendita di prodotti locali. 
+      Sar&#224; pensata come uno strumento per promuovere il territorio, 
+      permettendo a chiunque di comprendere la provenienza e la qualit&#224; dei 
+      prodotti tipici. Inoltre, la piattaforma faciliter&#224; l&#8217;organizzazione di 
+      eventi locali, come fiere e visite guidate alle aziende.</font></span>&nbsp;</b>
+    </p>
+    <p dir="ltr" line-height="1.38" style="margin-bottom:12pt;text-align:justify;margin-top:12pt;">
+      <b charset="utf-8" id="docs-internal-guid-77bb9861-7fff-cd69-2fed-9ced64051099" style="font-weight:normal;"><span font-style="normal" font-variant="normal" style="color:#000000;font-weight:400;vertical-align:baseline;font-size:11pt;font-family:Arial,sans-serif;" text-decoration="none" white-space="pre-wrap"><font face="Arial,sans-serif" size="11pt" style="color:#000000;font-size:11pt;">La 
+      piattaforma permette la tracciabilit&#224; di ogni prodotto attraverso i 
+      diversi attori della filiera, visualizzando l&#8217;intero ciclo produttivo. 
+      Il caricamento di informazioni e contenuti sar&#224; riferito a specifici 
+      punti della filiera, come aziende agricole e mercati sul territorio 
+      comunale. Ad esempio, i contenuti potranno includere dati relativi a 
+      certificazioni, metodi di coltivazione e pratiche di produzione. La 
+      piattaforma dovr&#224; inoltre fornire la possibilit&#224; di visualizzare tutti i 
+      punti della filiera su una mappa interattiva.</font></span>&nbsp;</b>
+    </p>
+    <p dir="ltr" line-height="1.38" style="margin-bottom:0pt;text-align:justify;margin-top:0pt;">
+      <b charset="utf-8" id="docs-internal-guid-77bb9861-7fff-cd69-2fed-9ced64051099" style="font-weight:normal;"><span font-style="normal" font-variant="normal" style="color:#000000;font-weight:400;vertical-align:baseline;font-size:11pt;font-family:Arial,sans-serif;" text-decoration="none" white-space="pre-wrap"><font face="Arial,sans-serif" size="11pt" style="color:#000000;font-size:11pt;">Si 
+      immaginano almeno i seguenti attori:</font></span>&nbsp;</b>
+    </p>
+    <ol style="margin-bottom:0;margin-top:0;">
+      <li aria-level="1" dir="ltr" font-style="normal" font-variant="normal" style="color:#000000;list-style-type:decimal;font-weight:400;vertical-align:baseline;font-size:11pt;font-family:Arial,sans-serif;" text-decoration="none" white-space="pre">
+        <p dir="ltr" line-height="1.38" role="presentation" style="margin-bottom:0pt;margin-top:12pt;">
+          <b charset="utf-8" id="docs-internal-guid-77bb9861-7fff-cd69-2fed-9ced64051099" style="font-weight:normal;"><span font-style="normal" font-variant="normal" style="color:#000000;font-weight:700;vertical-align:baseline;font-size:11pt;font-family:Arial,sans-serif;" text-decoration="none" white-space="pre-wrap"><font face="Arial,sans-serif" size="11pt" style="color:#000000;font-size:11pt;">Produttore</font></span><font face="Arial,sans-serif" size="11pt" style="color:#000000;font-size:11pt;"><span font-style="normal" font-variant="normal" style="color:#000000;font-weight:400;vertical-align:baseline;font-size:11pt;font-family:Arial,sans-serif;" text-decoration="none" white-space="pre-wrap">: 
+          pu&#242; caricare informazioni sui propri prodotti (metodi di 
+          coltivazione, certificazioni ecc.) e venderli nel marketplace.</span></font>&nbsp;</b>
+        </p>
+      </li>
+      <li aria-level="1" dir="ltr" font-style="normal" font-variant="normal" style="color:#000000;list-style-type:decimal;font-weight:400;vertical-align:baseline;font-size:11pt;font-family:Arial,sans-serif;" text-decoration="none" white-space="pre">
+        <p dir="ltr" line-height="1.38" role="presentation" style="margin-bottom:0pt;margin-top:0pt;">
+          <b charset="utf-8" id="docs-internal-guid-77bb9861-7fff-cd69-2fed-9ced64051099" style="font-weight:normal;"><span font-style="normal" font-variant="normal" style="color:#000000;font-weight:700;vertical-align:baseline;font-size:11pt;font-family:Arial,sans-serif;" text-decoration="none" white-space="pre-wrap"><font face="Arial,sans-serif" size="11pt" style="color:#000000;font-size:11pt;">Trasformatore</font></span><font face="Arial,sans-serif" size="11pt" style="color:#000000;font-size:11pt;"><span font-style="normal" font-variant="normal" style="color:#000000;font-weight:400;vertical-align:baseline;font-size:11pt;font-family:Arial,sans-serif;" text-decoration="none" white-space="pre-wrap">: 
+          pu&#242; caricare informazioni sui processi di trasformazione dei 
+          prodotti e sulle certificazioni di qualit&#224;, con la possibilit&#224; di 
+          collegare le fasi della produzione ai produttori locali. Pu&#242; vendere 
+          i prodotti nel marketplace.</span></font>&nbsp;</b>
+        </p>
+      </li>
+      <li aria-level="1" dir="ltr" font-style="normal" font-variant="normal" style="color:#000000;list-style-type:decimal;font-weight:400;vertical-align:baseline;font-size:11pt;font-family:Arial,sans-serif;" text-decoration="none" white-space="pre">
+        <p dir="ltr" line-height="1.38" role="presentation" style="margin-bottom:0pt;margin-top:0pt;">
+          <b charset="utf-8" id="docs-internal-guid-77bb9861-7fff-cd69-2fed-9ced64051099" style="font-weight:normal;"><span font-style="normal" font-variant="normal" style="color:#000000;font-weight:700;vertical-align:baseline;font-size:11pt;font-family:Arial,sans-serif;" text-decoration="none" white-space="pre-wrap"><font face="Arial,sans-serif" size="11pt" style="color:#000000;font-size:11pt;">Distributore 
+          di Tipicit&#224;</font></span><font face="Arial,sans-serif" size="11pt" style="color:#000000;font-size:11pt;"><span font-style="normal" font-variant="normal" style="color:#000000;font-weight:400;vertical-align:baseline;font-size:11pt;font-family:Arial,sans-serif;" text-decoration="none" white-space="pre-wrap">: 
+          pu&#242; caricare informazioni relative ai prodotti in vendita. Questi 
+          prodotti possono essere venduti singolarmente tramite il 
+          marketplace. Inoltre, il distributore pu&#242; creare pacchetti di 
+          prodotti che combinano pi&#249; articoli in un&#8217;unica offerta, favorendo 
+          l&#8217;acquisto di esperienze gastronomiche legate al territorio.</span></font>&nbsp;</b>
+        </p>
+      </li>
+      <li aria-level="1" dir="ltr" font-style="normal" font-variant="normal" style="color:#000000;list-style-type:decimal;font-weight:400;vertical-align:baseline;font-size:11pt;font-family:Arial,sans-serif;" text-decoration="none" white-space="pre">
+        <p dir="ltr" line-height="1.38" role="presentation" style="margin-bottom:0pt;margin-top:0pt;">
+          <b charset="utf-8" id="docs-internal-guid-77bb9861-7fff-cd69-2fed-9ced64051099" style="font-weight:normal;"><span font-style="normal" font-variant="normal" style="color:#000000;font-weight:700;vertical-align:baseline;font-size:11pt;font-family:Arial,sans-serif;" text-decoration="none" white-space="pre-wrap"><font face="Arial,sans-serif" size="11pt" style="color:#000000;font-size:11pt;">Curatore</font></span><font face="Arial,sans-serif" size="11pt" style="color:#000000;font-size:11pt;"><span font-style="normal" font-variant="normal" style="color:#000000;font-weight:400;vertical-align:baseline;font-size:11pt;font-family:Arial,sans-serif;" text-decoration="none" white-space="pre-wrap">: 
+          verifica i contenuti caricati dai produttori, trasformatori e 
+          venditori. Gestisce la validit&#224; delle informazioni e le approva 
+          prima della pubblicazione.&nbsp;</span></font>&nbsp;</b>
+        </p>
+      </li>
+      <li aria-level="1" dir="ltr" font-style="normal" font-variant="normal" style="color:#000000;list-style-type:decimal;font-weight:400;vertical-align:baseline;font-size:11pt;font-family:Arial,sans-serif;" text-decoration="none" white-space="pre">
+        <p dir="ltr" line-height="1.38" role="presentation" style="margin-bottom:0pt;margin-top:0pt;">
+          <b charset="utf-8" id="docs-internal-guid-77bb9861-7fff-cd69-2fed-9ced64051099" style="font-weight:normal;"><span font-style="normal" font-variant="normal" style="color:#000000;font-weight:700;vertical-align:baseline;font-size:11pt;font-family:Arial,sans-serif;" text-decoration="none" white-space="pre-wrap"><font face="Arial,sans-serif" size="11pt" style="color:#000000;font-size:11pt;">Animatore 
+          della Filiera:</font></span><span font-style="normal" font-variant="normal" style="color:#980000;font-weight:400;vertical-align:baseline;font-size:11pt;font-family:Arial,sans-serif;" text-decoration="none" white-space="pre-wrap"><font face="Arial,sans-serif" size="11pt" style="color:#980000;font-size:11pt;">&nbsp;</font></span><span font-style="normal" font-variant="normal" style="color:#000000;font-weight:400;vertical-align:baseline;font-size:11pt;font-family:Arial,sans-serif;" text-decoration="none" white-space="pre-wrap"><font face="Arial,sans-serif" size="11pt" style="color:#000000;font-size:11pt;">pu&#242; 
+          organizzare eventi e fiere invitando produttori, trasformatori e 
+          venditori. Inoltre, pu&#242; proporre visite alle aziende, come eventi di 
+          presentazione e tour di degustazione.</font></span>&nbsp;</b>
+        </p>
+      </li>
+      <li aria-level="1" dir="ltr" font-style="normal" font-variant="normal" style="color:#000000;list-style-type:decimal;font-weight:400;vertical-align:baseline;font-size:11pt;font-family:Arial,sans-serif;" text-decoration="none" white-space="pre">
+        <p dir="ltr" line-height="1.38" role="presentation" style="margin-bottom:0pt;margin-top:0pt;">
+          <b charset="utf-8" id="docs-internal-guid-77bb9861-7fff-cd69-2fed-9ced64051099" style="font-weight:normal;"><span font-style="normal" font-variant="normal" style="color:#000000;font-weight:700;vertical-align:baseline;font-size:11pt;font-family:Arial,sans-serif;" text-decoration="none" white-space="pre-wrap"><font face="Arial,sans-serif" size="11pt" style="color:#000000;font-size:11pt;">Acquirente</font></span><font face="Arial,sans-serif" size="11pt" style="color:#000000;font-size:11pt;"><span font-style="normal" font-variant="normal" style="color:#000000;font-weight:400;vertical-align:baseline;font-size:11pt;font-family:Arial,sans-serif;" text-decoration="none" white-space="pre-wrap">: 
+          accede alla piattaforma per informarsi sulla provenienza dei 
+          prodotti e pu&#242; acquistare dai vari attori della filiera. Pu&#242; inoltre 
+          prenotare la partecipazione a fiere ed eventi.</span></font>&nbsp;</b>
+        </p>
+      </li>
+      <li aria-level="1" dir="ltr" font-style="normal" font-variant="normal" style="color:#000000;list-style-type:decimal;font-weight:400;vertical-align:baseline;font-size:11pt;font-family:Arial,sans-serif;" text-decoration="none" white-space="pre">
+        <p dir="ltr" line-height="1.38" role="presentation" style="margin-bottom:0pt;margin-top:0pt;">
+          <b charset="utf-8" id="docs-internal-guid-77bb9861-7fff-cd69-2fed-9ced64051099" style="font-weight:normal;"><span font-style="normal" font-variant="normal" style="color:#000000;font-weight:700;vertical-align:baseline;font-size:11pt;font-family:Arial,sans-serif;" text-decoration="none" white-space="pre-wrap"><font face="Arial,sans-serif" size="11pt" style="color:#000000;font-size:11pt;">Utente 
+          Generico</font></span><font face="Arial,sans-serif" size="11pt" style="color:#000000;font-size:11pt;"><span font-style="normal" font-variant="normal" style="color:#000000;font-weight:400;vertical-align:baseline;font-size:11pt;font-family:Arial,sans-serif;" text-decoration="none" white-space="pre-wrap">: 
+          accede ai contenuti per informarsi sulla provenienza e la qualit&#224; 
+          dei prodotti locali.</span></font>&nbsp;</b>
+        </p>
+      </li>
+      <li aria-level="1" dir="ltr" font-style="normal" font-variant="normal" style="color:#000000;list-style-type:decimal;font-weight:400;vertical-align:baseline;font-size:11pt;font-family:Arial,sans-serif;" text-decoration="none" white-space="pre">
+        <p dir="ltr" line-height="1.38" role="presentation" style="margin-bottom:0pt;margin-top:0pt;">
+          <b charset="utf-8" id="docs-internal-guid-77bb9861-7fff-cd69-2fed-9ced64051099" style="font-weight:normal;"><span font-style="normal" font-variant="normal" style="color:#000000;font-weight:700;vertical-align:baseline;font-size:11pt;font-family:Arial,sans-serif;" text-decoration="none" white-space="pre-wrap"><font face="Arial,sans-serif" size="11pt" style="color:#000000;font-size:11pt;">Gestore 
+          della Piattaforma</font></span><font face="Arial,sans-serif" size="11pt" style="color:#000000;font-size:11pt;"><span font-style="normal" font-variant="normal" style="color:#000000;font-weight:400;vertical-align:baseline;font-size:11pt;font-family:Arial,sans-serif;" text-decoration="none" white-space="pre-wrap">: 
+          ha la responsabilit&#224; di gestire gli aspetti amministrativi della 
+          piattaforma, le autorizzazioni e gli accrediti per gli attori 
+          coinvolti.</span></font>&nbsp;</b>
+        </p>
+      </li>
+      <li aria-level="1" dir="ltr" font-style="normal" font-variant="normal" style="color:#000000;list-style-type:decimal;font-weight:400;vertical-align:baseline;font-size:11pt;font-family:Arial,sans-serif;" text-decoration="none" white-space="pre">
+        <p dir="ltr" line-height="1.38" role="presentation" style="margin-bottom:0pt;text-align:justify;margin-top:0pt;">
+          <b charset="utf-8" id="docs-internal-guid-77bb9861-7fff-cd69-2fed-9ced64051099" style="font-weight:normal;"><span font-style="normal" font-variant="normal" style="color:#000000;font-weight:700;vertical-align:baseline;font-size:11pt;font-family:Arial,sans-serif;" text-decoration="none" white-space="pre-wrap"><font face="Arial,sans-serif" size="11pt" style="color:#000000;font-size:11pt;">Sistemi 
+          Social destinatari di contenuti</font></span><font face="Arial,sans-serif" size="11pt" style="color:#000000;font-size:11pt;"><span font-style="normal" font-variant="normal" style="color:#000000;font-weight:400;vertical-align:baseline;font-size:11pt;font-family:Arial,sans-serif;" text-decoration="none" white-space="pre-wrap">:&nbsp; 
+          gli utenti che creano contenuti possono condividerli sui propri 
+          canali social.</span></font>&nbsp;</b>
+        </p>
+      </li>
+      <li aria-level="1" dir="ltr" font-style="normal" font-variant="normal" style="color:#000000;list-style-type:decimal;font-weight:400;vertical-align:baseline;font-size:11pt;font-family:Arial,sans-serif;" text-decoration="none" white-space="pre">
+        <p dir="ltr" line-height="1.38" role="presentation" style="margin-bottom:12pt;margin-top:0pt;">
+          <b charset="utf-8" id="docs-internal-guid-77bb9861-7fff-cd69-2fed-9ced64051099" style="font-weight:normal;"><span font-style="normal" font-variant="normal" style="color:#000000;font-weight:700;vertical-align:baseline;font-size:11pt;font-family:Arial,sans-serif;" text-decoration="none" white-space="pre-wrap"><font face="Arial,sans-serif" size="11pt" style="color:#000000;font-size:11pt;">Sistema 
+          OSM</font></span><font face="Arial,sans-serif" size="11pt" style="color:#000000;font-size:11pt;"><span font-style="normal" font-variant="normal" style="color:#000000;font-weight:400;vertical-align:baseline;font-size:11pt;font-family:Arial,sans-serif;" text-decoration="none" white-space="pre-wrap">: 
+          fornisce informazioni sulle mappe del territorio e la 
+          visualizzazione dei punti della filiera agricola.</span></font>&nbsp;</b>
+        </p>
+      </li>
+    </ol>
+    <h4 dir="ltr" line-height="1.38" style="margin-bottom:2pt;text-align:justify;margin-top:12pt;">
+      <span font-style="normal" font-variant="normal" style="color:#000000;font-weight:700;vertical-align:baseline;font-size:11pt;font-family:Arial,sans-serif;" text-decoration="none" white-space="pre-wrap"><font face="Arial,sans-serif" size="11pt" style="color:#000000;font-size:11pt;"><b>Vincoli 
+      e Dettagli Tecnici</b></font></span>
+    </h4>
+    <ul style="margin-bottom:0;margin-top:0;">
+      <li aria-level="1" dir="ltr" font-style="normal" font-variant="normal" style="color:#000000;list-style-type:disc;font-weight:400;vertical-align:baseline;font-size:11pt;font-family:Arial,sans-serif;" text-decoration="none" white-space="pre">
+        <p dir="ltr" line-height="1.38" role="presentation" style="margin-bottom:0pt;margin-top:12pt;">
+          <span font-style="normal" font-variant="normal" style="color:#000000;font-weight:400;vertical-align:baseline;font-size:11pt;font-family:Arial,sans-serif;" text-decoration="none" white-space="pre-wrap"><font face="Arial,sans-serif" size="11pt" style="color:#000000;font-size:11pt;">Il 
+          progetto deve essere sviluppato in Java e successivamente portato su </font></span><font face="Arial,sans-serif" size="11pt" style="color:#000000;font-size:11pt;"><span font-style="normal" font-variant="normal" style="color:#000000;font-weight:700;vertical-align:baseline;font-size:11pt;font-family:Arial,sans-serif;" text-decoration="none" white-space="pre-wrap"><b>Spring 
+          Boot</b></span><span font-style="normal" font-variant="normal" style="color:#000000;font-weight:400;vertical-align:baseline;font-size:11pt;font-family:Arial,sans-serif;" text-decoration="none" white-space="pre-wrap">.</span></font>
+        </p>
+      </li>
+      <li aria-level="1" dir="ltr" font-style="normal" font-variant="normal" style="color:#000000;list-style-type:disc;font-weight:400;vertical-align:baseline;font-size:11pt;font-family:Arial,sans-serif;" text-decoration="none" white-space="pre">
+        <p dir="ltr" line-height="1.38" role="presentation" style="margin-bottom:12pt;margin-top:0pt;">
+          <span font-style="normal" font-variant="normal" style="color:#000000;font-weight:400;vertical-align:baseline;font-size:11pt;font-family:Arial,sans-serif;" text-decoration="none" white-space="pre-wrap"><font face="Arial,sans-serif" size="11pt" style="color:#000000;font-size:11pt;">Lo 
+          strato di presentazione pu&#242; essere sviluppato con strumenti a scelta 
+          dello studente ed eventualmente pu&#242; limitarsi alla linea di comando 
+          e/o API REST.</font></span>
+        </p>
+      </li>
+      <li aria-level="1" dir="ltr" font-style="normal" font-variant="normal" style="color:#000000;list-style-type:disc;font-weight:400;vertical-align:baseline;font-size:11pt;font-family:Arial,sans-serif;" text-decoration="none" white-space="pre">
+        <p dir="ltr" line-height="1.38" role="presentation" style="margin-bottom:12pt;margin-top:12pt;">
+          <span font-style="normal" font-variant="normal" style="color:#000000;font-weight:400;vertical-align:baseline;font-size:11pt;font-family:Arial,sans-serif;" text-decoration="none" white-space="pre-wrap"><font face="Arial,sans-serif" size="11pt" style="color:#000000;font-size:11pt;">Si 
+          raccomanda di utilizzare almeno due design pattern (diverso dal 
+          Singleton).</font></span>
+        </p>
+      </li>
+    </ul>
+    <p>
+      &nbsp;
+    </p>
+  </body>
