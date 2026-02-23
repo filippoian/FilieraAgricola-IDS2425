@@ -1,7 +1,9 @@
 package it.unicam.cs.ids2425.FilieraAgricola.model;
 
 /**
- * Enum per i nomi dei ruoli, come da specifica.
+ * Enumerazione che definisce i ruoli autorizzativi gestiti dalla piattaforma.
+ * Questi ruoli permettono il controllo granulare degli accessi e delle
+ * funzionalità utente (es. Produttore, Distributore, ecc.).
  */
 public enum ERole {
     ROLE_PRODUTTORE,
@@ -11,5 +13,5 @@ public enum ERole {
     ROLE_ANIMATORE,
     ROLE_ACQUIRENTE,
     ROLE_UTENTEGENERICO, // Ruolo di default
-    ROLE_GESTORE        // Ruolo admin
+    ROLE_GESTORE // Ruolo admin
 }

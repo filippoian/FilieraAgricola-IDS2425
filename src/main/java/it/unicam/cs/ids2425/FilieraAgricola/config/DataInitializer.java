@@ -18,6 +18,13 @@ public class DataInitializer implements CommandLineRunner {
     @Autowired
     RoleRepository roleRepository;
 
+    /**
+     * Logica di inserimento per i ruoli al caricamento dell'applicazione.
+     * 
+     * @param args argomenti eseguiti a riga di comando passati da Spring.
+     * @throws Exception in caso non sia possibile configurare correttamente i
+     *                   ruoli.
+     */
     @Override
     public void run(String... args) throws Exception {
         System.out.println("Avvio inizializzazione ruoli...");
@@ -38,4 +45,3 @@ public class DataInitializer implements CommandLineRunner {
         System.out.println("Inizializzazione ruoli completata.");
     }
 }
-

@@ -4,9 +4,21 @@ import it.unicam.cs.ids2425.FilieraAgricola.security.UserDetailsImpl; // <-- IMP
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Service;
 
+/**
+ * Servizio di sicurezza personalizzato per l'autorizzazione degli utenti.
+ */
 @Service("customSecurityService")
 public class CustomSecurityService {
 
+    /**
+     * Verifica se l'utente autenticato corrisponde all'ID utente specificato.
+     * 
+     * @param authentication L'oggetto Authentication contenente il contesto di
+     *                       sicurezza.
+     * @param userId         L'ID dell'utente da verificare contro il principal.
+     * @return true se l'utente autenticato è autorizzato per l'ID in esame, false
+     *         altrimenti.
+     */
     public boolean hasUserId(Authentication authentication, Long userId) {
         System.out.println("--- INIZIO CONTROLLO SICUREZZA PERSONALIZZATO ---");
 
@@ -38,7 +50,8 @@ public class CustomSecurityService {
             return isMatch;
         } else {
             // --- INIZIO CORREZIONE ---
-            System.out.println("ERRORE: Il 'principal' non è un'istanza di UserDetailsImpl. Impossibile ottenere l'ID.");
+            System.out
+                    .println("ERRORE: Il 'principal' non è un'istanza di UserDetailsImpl. Impossibile ottenere l'ID.");
             // --- FINE CORREZIONE ---
             System.out.println("--- FINE CONTROLLO SICUREZZA ---");
             return false;

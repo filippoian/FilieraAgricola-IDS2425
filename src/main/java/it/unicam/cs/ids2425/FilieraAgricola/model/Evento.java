@@ -5,11 +5,17 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode; // <--- Aggiunto per sicurezza (come per le altre entità)
 import lombok.NoArgsConstructor;
-import lombok.ToString;       // <--- Aggiunto
+import lombok.ToString; // <--- Aggiunto
 
 import java.math.BigDecimal; // <--- IMPORTANTE
 import java.time.LocalDate;
 
+/**
+ * Entità del dominio relativa ad un evento promozionale o esperienziale
+ * promosso nella piattaforma.
+ * L'evento attraversa uno stato di approvazione tramite contenitore
+ * ContentSubmission prima di essere pubblicato.
+ */
 @Entity
 @Data
 @NoArgsConstructor
